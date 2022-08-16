@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
   execute-dir: project
 
 book:
@@ -7,6 +8,7 @@ book:
   author: 
    - Fabio Cop, Unifesp, fcferreira@unifesp.br
   date: last-modified
+  cover-image: nasa-Q1p7bh3SHj8-unsplash.jpg
   navbar:
     search: false
     background: secondary
@@ -48,7 +50,7 @@ knitr:
 format:
   html:
     theme: cosmo
-    cover-image: nasa-Q1p7bh3SHj8-unsplash.jpg
+    
     code-fold: false
     toc: true
     toc-depth: 2
