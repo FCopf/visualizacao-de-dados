@@ -1,0 +1,59 @@
+project:
+  type: book
+  execute-dir: project
+
+book:
+  title: "Descrição e Visualização de Dados"
+  author: 
+   - Fabio Cop, Unifesp, fcferreira@unifesp.br
+  date: last-modified
+  navbar:
+    search: false
+    background: secondary
+    right:
+      - icon: github
+        href: https://github.com/FCopf
+        aria-label: GitHub
+  chapters:
+    - index.qmd
+    - part: qmd/01_estrutura_dados/00-PART-estrutura_dados.qmd
+      chapters: 
+        - qmd/01_estrutura_dados/01-estrdados.qmd
+        - qmd/01_estrutura_dados/02-procdados.qmd
+    - part: qmd/02_dados_univariados/00-PART-dados_univariados.qmd
+      chapters:
+        - qmd/02_dados_univariados/01-varqualit.qmd
+        - qmd/02_dados_univariados/02-varquant.qmd
+        - qmd/02_dados_univariados/03-tendcentral.qmd
+        - qmd/02_dados_univariados/04-variacao.qmd
+        - qmd/02_dados_univariados/05-quartis.qmd
+        - qmd/02_dados_univariados/06-escorez.qmd
+    - part: qmd/03_dados_bivariados/00-PART-dados_bivariados.qmd
+      chapters:
+        - qmd/03_dados_bivariados/01-biquali.qmd
+        - qmd/03_dados_bivariados/02-biquant.qmd
+        - qmd/03_dados_bivariados/03-biquantquali.qmd
+        - qmd/03_dados_bivariados/04-series.qmd
+    - part: qmd/04_dados_multivariados/00-PART-dados_multivariados.qmd
+      chapters:
+        - qmd/04_dados_multivariados/01-matrizes.qmd
+
+bibliography: references.bib
+knitr:
+  opts_chunk: 
+    echo: true
+    message: false
+    warning: false
+
+format:
+  html:
+    theme: cosmo
+    cover-image: nasa-Q1p7bh3SHj8-unsplash.jpg
+    code-fold: false
+    toc: true
+    toc-depth: 2
+    code-overflow: wrap
+
+
+#editor: visual
+

@@ -1,0 +1,8 @@
+# Apresentação {-}
+
+:::{.callout-note}
+Formatação e apresentação de tabelas
+
+Ao apresentar `data.frames` como resultados das análises de dados, utilizaremos o pacote `flextable` para fins de apresentação gráfica. Caso deseje rodar os códigos no RStudio, remova as funções `flextable()` e outras funções associadas (ex.: `fit_to_width(max_width = 8)`).
+
+:::
