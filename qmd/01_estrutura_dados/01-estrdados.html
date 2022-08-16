@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Descrição e Visualização de Dados - 1&nbsp; Estrutura e tipo de dados</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../qmd/01_estrutura_dados/02-procdados.html" rel="next">
+<link href="../../qmd/01_estrutura_dados/00-PART-estrutura_dados.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<link href="../../site_libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
+<link href="../../site_libs/tabwid-1.0.0/scrool.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Descrição e Visualização de Dados</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/FCopf"><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estrutura e tipo de dados</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">Apresentação</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../qmd/01_estrutura_dados/00-PART-estrutura_dados.html" class="sidebar-item-text sidebar-link">Estrutura de dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/01_estrutura_dados/01-estrdados.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estrutura e tipo de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/01_estrutura_dados/02-procdados.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Processamento de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../qmd/02_dados_univariados/00-PART-dados_univariados.html" class="sidebar-item-text sidebar-link">Resumo e descrição de dados univariados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/02_dados_univariados/01-varqualit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descrevendo variáveis qualitativas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/02_dados_univariados/02-varquant.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descrevendo variáveis quantitativas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/02_dados_univariados/03-tendcentral.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Medidas de tendência central</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/02_dados_univariados/04-variacao.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Medidas de variação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/02_dados_univariados/05-quartis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Medidas de posição: quartis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/02_dados_univariados/06-escorez.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Medidas de posição: índice Z</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../qmd/03_dados_bivariados/00-PART-dados_bivariados.html" class="sidebar-item-text sidebar-link">Associação entre pares de variáveis</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/03_dados_bivariados/01-biquali.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Associação entre duas variáveis qualitativas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/03_dados_bivariados/02-biquant.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Associação entre duas variáveis quantitativas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/03_dados_bivariados/03-biquantquali.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Associação entre variáveis quantitativas e qualitativas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/03_dados_bivariados/04-series.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Séries de dados no tempo e no espaço</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../qmd/04_dados_multivariados/00-PART-dados_multivariados.html" class="sidebar-item-text sidebar-link">Associação multivariada</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/04_dados_multivariados/01-matrizes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Estrutura e operações matriciais</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Conteúdo</h2>
+   
+  <ul>
+  <li><a href="#um-exemplo" id="toc-um-exemplo" class="nav-link active" data-scroll-target="#um-exemplo"> <span class="header-section-number">1.1</span> Um exemplo</a></li>
+  <li><a href="#unidades-amostrais-e-descritores" id="toc-unidades-amostrais-e-descritores" class="nav-link" data-scroll-target="#unidades-amostrais-e-descritores"> <span class="header-section-number">1.2</span> Unidades amostrais e descritores</a></li>
+  <li><a href="#tipos-de-dados" id="toc-tipos-de-dados" class="nav-link" data-scroll-target="#tipos-de-dados"> <span class="header-section-number">1.3</span> Tipos de dados</a></li>
+  <li><a href="#níveis-de-mensuração" id="toc-níveis-de-mensuração" class="nav-link" data-scroll-target="#níveis-de-mensuração"> <span class="header-section-number">1.4</span> Níveis de mensuração</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="estrdados" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estrutura e tipo de dados</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pacotes e funções utilizadas no capítulo
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#library(officer)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Utilizamos métodos de estatística descritiva para evidenciar informações relevantes de um conjunto de dados. Em grande parte, a apresentação destas informações passa pela construção de tabelas, gráficos e pelo cálculo de descritores que resumem algumas características das variáveis envolvidas (ex. média aritmética, desvio padrão, frequência relativa, padrões de associação). Neste capítulo iremos tratar a estrutura de um conjunto de dados e dos tipos de variáveis mais comuns.</p>
+<section id="um-exemplo" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="um-exemplo"><span class="header-section-number">1.1</span> Um exemplo</h2>
+<p>Considere a tabela abaixo, construída a partir do livro de Biocenoses em Reservatórios: padrões espaciais e temporais <span class="citation" data-cites="rodriguesetal2005">(<a href="#ref-rodriguesetal2005" role="doc-biblioref">Rodrigues et al. 2005</a>)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> <span class="fu">read_delim</span>(<span class="st">"datasets/Reservatorios_Parana_parcial.csv"</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"latin1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>res <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit_to_width</span>(<span class="at">max_width =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-fa7073c0{}.cl-fa691e4a{font-family:'DejaVu Sans';font-size:7pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fa692c14{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fa692c28{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fa6988d0{width:56pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa6988e4{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa6988ee{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698902{width:33.4pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698916{width:66.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa69892a{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698934{width:54.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa69893e{width:56.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698952{width:37.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa69895c{width:24.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698966{width:41.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa69897a{width:66.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698984{width:37.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa69898e{width:24.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa6989a2{width:41.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa6989ac{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa6989c0{width:56pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa6989ca{width:33.4pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa6989d4{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa6989e8{width:56.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa6989fc{width:54.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a06{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a1a{width:41.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a24{width:54.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a2e{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a38{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a4c{width:24.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a56{width:33.4pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a60{width:66.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a74{width:37.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a7e{width:56.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a88{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698a92{width:56pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698aa6{width:33.4pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698ab0{width:56.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698ac4{width:56pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698ace{width:66.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698ae2{width:41.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698ae3{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698af6{width:54.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698b00{width:37.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698b14{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698b1e{width:24.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698b28{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698b3c{width:56.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698b46{width:56pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698b50{width:33.4pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698b64{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698b78{width:41.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698b82{width:66.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698b96{width:24.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698ba0{width:37.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698baa{width:54.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698bbe{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698bc8{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698bd2{width:54.1pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698be6{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698bf0{width:56pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698bfa{width:33.4pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c04{width:24.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c18{width:37.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c22{width:41.3pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c2c{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c40{width:56.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c4a{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c54{width:66.3pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c5e{width:33.4pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c72{width:41.3pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c86{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c90{width:64.1pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698c9a{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698cae{width:66.3pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698cc2{width:56.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698cd6{width:54.1pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698ce0{width:56pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698cea{width:24.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa698cf4{width:37.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-fa7073c0">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-fa698c90"><p class="cl-fa692c14"><span class="cl-fa691e4a">Reservatorio</span></p></td><td class="cl-fa698cae"><p class="cl-fa692c14"><span class="cl-fa691e4a">Bacia</span></p></td><td class="cl-fa698cc2"><p class="cl-fa692c28"><span class="cl-fa691e4a">Fechamento</span></p></td><td class="cl-fa698cf4"><p class="cl-fa692c28"><span class="cl-fa691e4a">Area</span></p></td><td class="cl-fa698cd6"><p class="cl-fa692c14"><span class="cl-fa691e4a">Trofia</span></p></td><td class="cl-fa698cea"><p class="cl-fa692c28"><span class="cl-fa691e4a">pH</span></p></td><td class="cl-fa698c86"><p class="cl-fa692c28"><span class="cl-fa691e4a">Condutividade</span></p></td><td class="cl-fa698ce0"><p class="cl-fa692c28"><span class="cl-fa691e4a">Alcalinidade</span></p></td><td class="cl-fa698c9a"><p class="cl-fa692c28"><span class="cl-fa691e4a">P.total</span></p></td><td class="cl-fa698c72"><p class="cl-fa692c28"><span class="cl-fa691e4a">Riqueza</span></p></td><td class="cl-fa698c5e"><p class="cl-fa692c28"><span class="cl-fa691e4a">CPUE</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Cavernoso</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,965</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">2.90</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.4</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">33.1</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">139.80</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.8</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">18</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">9.22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Curucaca</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,982</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">2.00</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.0</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">32.4</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">125.70</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">4.7</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">16</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">28.73</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Foz do Areia</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,980</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">139.00</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.3</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">35.5</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">97.00</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">14.3</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">19</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">11.59</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa698b14"><p class="cl-fa692c14"><span class="cl-fa691e4a">Irai</span></p></td><td class="cl-fa698ace"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa698ab0"><p class="cl-fa692c28"><span class="cl-fa691e4a">2,000</span></p></td><td class="cl-fa698b00"><p class="cl-fa692c28"><span class="cl-fa691e4a">15.00</span></p></td><td class="cl-fa698af6"><p class="cl-fa692c14"><span class="cl-fa691e4a">Eutrófico</span></p></td><td class="cl-fa698b1e"><p class="cl-fa692c28"><span class="cl-fa691e4a">6.9</span></p></td><td class="cl-fa698b28"><p class="cl-fa692c28"><span class="cl-fa691e4a">50.2</span></p></td><td class="cl-fa698ac4"><p class="cl-fa692c28"><span class="cl-fa691e4a">3.30</span></p></td><td class="cl-fa698ae3"><p class="cl-fa692c28"><span class="cl-fa691e4a">53.4</span></p></td><td class="cl-fa698ae2"><p class="cl-fa692c28"><span class="cl-fa691e4a">12</span></p></td><td class="cl-fa698aa6"><p class="cl-fa692c28"><span class="cl-fa691e4a">30.76</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa698b14"><p class="cl-fa692c14"><span class="cl-fa691e4a">JMF</span></p></td><td class="cl-fa698ace"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa698ab0"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,970</span></p></td><td class="cl-fa698b00"><p class="cl-fa692c28"><span class="cl-fa691e4a">0.45</span></p></td><td class="cl-fa698af6"><p class="cl-fa692c14"><span class="cl-fa691e4a">Mesotrófico</span></p></td><td class="cl-fa698b1e"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.3</span></p></td><td class="cl-fa698b28"><p class="cl-fa692c28"><span class="cl-fa691e4a">40.2</span></p></td><td class="cl-fa698ac4"><p class="cl-fa692c28"><span class="cl-fa691e4a">3.70</span></p></td><td class="cl-fa698ae3"><p class="cl-fa692c28"><span class="cl-fa691e4a">41.2</span></p></td><td class="cl-fa698ae2"><p class="cl-fa692c28"><span class="cl-fa691e4a">18</span></p></td><td class="cl-fa698aa6"><p class="cl-fa692c28"><span class="cl-fa691e4a">5.95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Jordao</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,996</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">3.40</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.1</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">23.7</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">152.70</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">3.3</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">17</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.75</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Passauna</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,978</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">14.00</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">8.8</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">125.6</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">526.00</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">15.2</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">11</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.51</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Piraquara</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,979</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">3.30</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.1</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">22.8</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">50.67</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">4.5</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">8</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">4.01</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Salto Caxias</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,998</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">124.00</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.3</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">39.6</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">106.00</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">12.1</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">21</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">20.83</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Salto do Vau</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,959</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">2.90</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">6.5</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">23.2</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">279.00</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">11.0</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">8</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">2.43</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Salto Osorio</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,975</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">51.00</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">8.6</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">38.9</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">233.30</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">3.4</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">24</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">12.55</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Salto Santiago</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,979</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">208.00</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">9.2</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">39.5</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">117.60</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">13.1</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">21</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">11.73</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Segredo</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Iguacu</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,992</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">82.50</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.0</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">34.5</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">165.20</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">6.4</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">22</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">13.72</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Mourao</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Ivai</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,964</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">11.30</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">8.1</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">23.3</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">56.55</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.1</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">15</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">16.50</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa698a06"><p class="cl-fa692c14"><span class="cl-fa691e4a">Patos</span></p></td><td class="cl-fa69897a"><p class="cl-fa692c14"><span class="cl-fa691e4a">Ivai</span></p></td><td class="cl-fa6989e8"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698984"><p class="cl-fa692c28"><span class="cl-fa691e4a">1.30</span></p></td><td class="cl-fa6989fc"><p class="cl-fa692c14"><span class="cl-fa691e4a">Mesotrófico</span></p></td><td class="cl-fa69898e"><p class="cl-fa692c28"><span class="cl-fa691e4a">6.9</span></p></td><td class="cl-fa6989d4"><p class="cl-fa692c28"><span class="cl-fa691e4a">46.0</span></p></td><td class="cl-fa6989c0"><p class="cl-fa692c28"><span class="cl-fa691e4a">180.10</span></p></td><td class="cl-fa6989ac"><p class="cl-fa692c28"><span class="cl-fa691e4a">39.2</span></p></td><td class="cl-fa6989a2"><p class="cl-fa692c28"><span class="cl-fa691e4a">10</span></p></td><td class="cl-fa6989ca"><p class="cl-fa692c28"><span class="cl-fa691e4a">4.71</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Guaricana</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Litoranea</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,957</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.00</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.4</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">27.9</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">83.72</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">12.4</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">12</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Parigot Souza</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Litoranea</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,970</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">12.00</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.7</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">63.6</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">259.20</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">16.9</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">12</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">13.12</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Salto do Meio</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Litoranea</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">0.10</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">6.9</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">37.4</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">147.10</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">17.1</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">11</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">16.10</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa698a88"><p class="cl-fa692c14"><span class="cl-fa691e4a">Vossoroca</span></p></td><td class="cl-fa698a60"><p class="cl-fa692c14"><span class="cl-fa691e4a">Litoranea</span></p></td><td class="cl-fa698a7e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,949</span></p></td><td class="cl-fa698a74"><p class="cl-fa692c28"><span class="cl-fa691e4a">5.10</span></p></td><td class="cl-fa698a24"><p class="cl-fa692c14"><span class="cl-fa691e4a">Mesotrófico</span></p></td><td class="cl-fa698a4c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.3</span></p></td><td class="cl-fa698a38"><p class="cl-fa692c28"><span class="cl-fa691e4a">39.8</span></p></td><td class="cl-fa698a92"><p class="cl-fa692c28"><span class="cl-fa691e4a">156.00</span></p></td><td class="cl-fa698a2e"><p class="cl-fa692c28"><span class="cl-fa691e4a">21.9</span></p></td><td class="cl-fa698a1a"><p class="cl-fa692c28"><span class="cl-fa691e4a">14</span></p></td><td class="cl-fa698a56"><p class="cl-fa692c28"><span class="cl-fa691e4a">11.74</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Canoas I</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Paranapanema</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,999</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">30.85</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.4</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">63.3</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">234.90</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">9.9</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">35</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">17.95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Canoas II</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Paranapanema</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,992</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">22.50</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.8</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">61.2</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">9.0</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">40</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">13.86</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Capivara</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Paranapanema</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,975</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">419.30</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.5</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">58.6</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">196.00</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">5.5</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">34</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">13.04</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Chavantes</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Paranapanema</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,970</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">400.00</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.6</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">57.8</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">211.80</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.8</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">23</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.35</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa698b14"><p class="cl-fa692c14"><span class="cl-fa691e4a">Rosana</span></p></td><td class="cl-fa698ace"><p class="cl-fa692c14"><span class="cl-fa691e4a">Paranapanema</span></p></td><td class="cl-fa698ab0"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,986</span></p></td><td class="cl-fa698b00"><p class="cl-fa692c28"><span class="cl-fa691e4a">220.00</span></p></td><td class="cl-fa698af6"><p class="cl-fa692c14"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698b1e"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.7</span></p></td><td class="cl-fa698b28"><p class="cl-fa692c28"><span class="cl-fa691e4a">58.2</span></p></td><td class="cl-fa698ac4"><p class="cl-fa692c28"><span class="cl-fa691e4a">202.40</span></p></td><td class="cl-fa698ae3"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698ae2"><p class="cl-fa692c28"><span class="cl-fa691e4a">30</span></p></td><td class="cl-fa698aa6"><p class="cl-fa692c28"><span class="cl-fa691e4a">20.92</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Salto Grande</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Paranapanema</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,958</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">12.00</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.1</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">62.3</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">230.10</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">10.3</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">24</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">13.67</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Taquarucu</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Paranapanema</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,989</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">80.10</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.9</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">57.0</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">191.80</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">4.5</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">33</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">21.82</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa698bbe"><p class="cl-fa692c14"><span class="cl-fa691e4a">Melissa</span></p></td><td class="cl-fa698b82"><p class="cl-fa692c14"><span class="cl-fa691e4a">Piriqui</span></p></td><td class="cl-fa698b3c"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,962</span></p></td><td class="cl-fa698ba0"><p class="cl-fa692c28"><span class="cl-fa691e4a">0.10</span></p></td><td class="cl-fa698baa"><p class="cl-fa692c14"><span class="cl-fa691e4a">Eutrófico</span></p></td><td class="cl-fa698b96"><p class="cl-fa692c28"><span class="cl-fa691e4a">6.8</span></p></td><td class="cl-fa698b64"><p class="cl-fa692c28"><span class="cl-fa691e4a">34.0</span></p></td><td class="cl-fa698b46"><p class="cl-fa692c28"><span class="cl-fa691e4a">68.37</span></p></td><td class="cl-fa698bc8"><p class="cl-fa692c28"><span class="cl-fa691e4a">66.9</span></p></td><td class="cl-fa698b78"><p class="cl-fa692c28"><span class="cl-fa691e4a">12</span></p></td><td class="cl-fa698b50"><p class="cl-fa692c28"><span class="cl-fa691e4a">6.29</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Santa Maria</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Piriqui</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">0.07</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">6.8</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">41.7</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">480.10</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">14.9</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">7</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">9.40</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa6988ee"><p class="cl-fa692c14"><span class="cl-fa691e4a">Alagados</span></p></td><td class="cl-fa698916"><p class="cl-fa692c14"><span class="cl-fa691e4a">Tibagi</span></p></td><td class="cl-fa69893e"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,909</span></p></td><td class="cl-fa698952"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.20</span></p></td><td class="cl-fa698934"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa69895c"><p class="cl-fa692c28"><span class="cl-fa691e4a">7.6</span></p></td><td class="cl-fa6988e4"><p class="cl-fa692c28"><span class="cl-fa691e4a">41.7</span></p></td><td class="cl-fa6988d0"><p class="cl-fa692c28"><span class="cl-fa691e4a">172.20</span></p></td><td class="cl-fa69892a"><p class="cl-fa692c28"><span class="cl-fa691e4a">19.9</span></p></td><td class="cl-fa698966"><p class="cl-fa692c28"><span class="cl-fa691e4a">7</span></p></td><td class="cl-fa698902"><p class="cl-fa692c28"><span class="cl-fa691e4a">5.60</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa698bbe"><p class="cl-fa692c14"><span class="cl-fa691e4a">Apucaraninha</span></p></td><td class="cl-fa698b82"><p class="cl-fa692c14"><span class="cl-fa691e4a">Tibagi</span></p></td><td class="cl-fa698b3c"><p class="cl-fa692c28"><span class="cl-fa691e4a">1,958</span></p></td><td class="cl-fa698ba0"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698baa"><p class="cl-fa692c14"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698b96"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698b64"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698b46"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698bc8"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698b78"><p class="cl-fa692c28"><span class="cl-fa691e4a">10</span></p></td><td class="cl-fa698b50"><p class="cl-fa692c28"><span class="cl-fa691e4a">2.05</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa698c2c"><p class="cl-fa692c14"><span class="cl-fa691e4a">Harmonia</span></p></td><td class="cl-fa698c54"><p class="cl-fa692c14"><span class="cl-fa691e4a">Tibagi</span></p></td><td class="cl-fa698c40"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698c18"><p class="cl-fa692c28"><span class="cl-fa691e4a"></span></p></td><td class="cl-fa698bd2"><p class="cl-fa692c14"><span class="cl-fa691e4a">Oligotrófico</span></p></td><td class="cl-fa698c04"><p class="cl-fa692c28"><span class="cl-fa691e4a">8.3</span></p></td><td class="cl-fa698c4a"><p class="cl-fa692c28"><span class="cl-fa691e4a">31.0</span></p></td><td class="cl-fa698bf0"><p class="cl-fa692c28"><span class="cl-fa691e4a">113.30</span></p></td><td class="cl-fa698be6"><p class="cl-fa692c28"><span class="cl-fa691e4a">8.6</span></p></td><td class="cl-fa698c22"><p class="cl-fa692c28"><span class="cl-fa691e4a">7</span></p></td><td class="cl-fa698bfa"><p class="cl-fa692c28"><span class="cl-fa691e4a">24.88</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<div class="cell">
+
+</div>
+<p>A tabela é formada por 31 linhas referentes a reservatórios do estado do Paraná e 11 colunas em que constam informações sobre cada reservatório, sendo elas:</p>
+<p><strong>Reservatorio</strong>: nome do reservatório;</p>
+<p><strong>Bacia</strong>: bacia hidrográfica (Iguacu, Ivai, Litoranea, Paranapanema, Piriqui, Tibagi);</p>
+<p><strong>Fechamento</strong>: ano de formação do reservatório;</p>
+<p><strong>Area</strong>: área em <span class="math inline">\(km^2\)</span>;</p>
+<p><strong>Trofia</strong>: grau de trofia (Eutrófico, Mesotrófico, Oligotrófico);</p>
+<p><strong>pH</strong>: pH;</p>
+<p><strong>Condutividade</strong>: condutividade;</p>
+<p><strong>Alcalinidade</strong>: alcalinidade;</p>
+<p><strong>P.total</strong>: fósforo total;</p>
+<p><strong>Riqueza</strong>: número de espécies de peixes encontradas;</p>
+<p><strong>CPUE</strong>: captura (kg) por unidade de esforço;</p>
+</section>
+<section id="unidades-amostrais-e-descritores" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="unidades-amostrais-e-descritores"><span class="header-section-number">1.2</span> Unidades amostrais e descritores</h2>
+<p>Esta tabela está organizada no formato em que cada linha representa uma <strong>unidade amostral (UA)</strong> e cada coluna representa uma <strong>variável (VA)</strong> que descreve determinada característica desta observação. Ao longo dos próximos capítulos veremos diversos conjuntos de dados organizados neste formato.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-fa818ed0{}.cl-fa7de294{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fa7de2a8{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fa7dec44{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fa7e12d2{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa7e12e6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa7e12fa{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa7e1304{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-fa818ed0">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-fa7e1304"><p class="cl-fa7dec44"><span class="cl-fa7de294">ID</span></p></td><td class="cl-fa7e1304"><p class="cl-fa7dec44"><span class="cl-fa7de294">VA 1</span></p></td><td class="cl-fa7e1304"><p class="cl-fa7dec44"><span class="cl-fa7de294">VA 2</span></p></td><td class="cl-fa7e1304"><p class="cl-fa7dec44"><span class="cl-fa7de294">VA 3</span></p></td><td class="cl-fa7e1304"><p class="cl-fa7dec44"><span class="cl-fa7de294">VA 4</span></p></td><td class="cl-fa7e1304"><p class="cl-fa7dec44"><span class="cl-fa7de294">VA 5</span></p></td><td class="cl-fa7e1304"><p class="cl-fa7dec44"><span class="cl-fa7de294">VA 6</span></p></td><td class="cl-fa7e1304"><p class="cl-fa7dec44"><span class="cl-fa7de294">VA 7</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fa7e12d2"><p class="cl-fa7dec44"><span class="cl-fa7de2a8">UA 1  </span></p></td><td class="cl-fa7e12d2"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12d2"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12d2"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12d2"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12d2"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12d2"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12d2"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8">UA 2  </span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8">UA 3  </span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8">UA 4  </span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8">UA 5  </span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8">UA 6  </span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8">UA 7  </span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8">UA 8  </span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8">UA 9  </span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12fa"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fa7e12e6"><p class="cl-fa7dec44"><span class="cl-fa7de2a8">UA 10  </span></p></td><td class="cl-fa7e12e6"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12e6"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12e6"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12e6"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12e6"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12e6"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td><td class="cl-fa7e12e6"><p class="cl-fa7dec44"><span class="cl-fa7de2a8"></span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<div class="cell">
+
+</div>
+<p>No exemplo referentes aos reservatórios do Paraná, cada unidade amostral (linhas da tabela) é um reservatório. Os reservatórios são descritos por meio das variáveis dispostas nas colunas da tabela. O reservatório de Cavernoso por exemplo faz parte da bacia do Iguacu, foi formado no ano de 1965, tem área de 2.9 <span class="math inline">\(km^2\)</span>, pH igual a 7.4 e assim por diante.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Valores faltantes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Algumas células da tabela estão preenchidas por <strong>NA</strong>. Isto significa que a informação naquela célula <strong>não foi mensurada</strong> e que temos um <strong>dado faltante</strong>. Você deve ter muito cuidado ao lidar com este tipo de situação. Se uma linha contém muitas células sem informação, é prudente excluir esta observação das análises. Se por outro lado, uma coluna apresenta muitos valores faltantes, talvez seja prudente excluir a variável das análises. Se você não deseja ou não pode excluir a linha ou a coluna existem métodos de preenchimento de dados faltantes. No entanto, ao optar por algum destes métodos, você deve ter ter claro quais serão os efeitos de inserir uma informação à tabela de dados que efetivamente não foi mensurada.</p>
+</div>
+</div>
+</section>
+<section id="tipos-de-dados" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="tipos-de-dados"><span class="header-section-number">1.3</span> Tipos de dados</h2>
+<p>Uma tabela de dados pode ser composta por variáveis <strong>quantitativas</strong> ou <strong>qualitativas</strong>.</p>
+<section id="variáveis-qualitativas" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="variáveis-qualitativas">Variáveis qualitativas</h3>
+<p>São variáveis <strong>não-numéricas</strong> como categorias ou rótulos. Dentre as variáveis qualitativas temos aquelas do tipo <strong>categóricas não-ordenadas</strong> e do tipo <strong>categóricas ordenadas</strong>.</p>
+<p><em>Variável categórica não-ordenada</em>: a variável <code>Bacia</code> classifica um reservatório como pertencente a uma determinada bacia hidrográfica. Os <em>níveis</em> da variável <code>Bacia</code> são: Iguacu, Ivai, Litoranea, Paranapanema, Piriqui, Tibagi. A variável é do tipo categórica não-ordenada, pois os níveis não possuem qualquer relação de ordenação natural entre si.</p>
+</section>
+<section id="variáveis-quantitativas" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="variáveis-quantitativas">Variáveis quantitativas</h3>
+<p>São variáveis <em>numéricas</em> que também podem ser sub-divididas em dois grupos: <em>discretas</em> e <em>contínuas</em>.</p>
+<ul>
+<li><p><em>Variáveis quantitativas discretas</em>: envolvem quantias <em>enumeráveis</em> como a contagem de barcos que saem para pescar em um determinado dia, o número de peixes de um cardume. Em nosso exemplo, a variável <code>Riqueza</code> é quantitativa discreta pois expressa o número de espécies de peixes encontradas em cada reservatório. Este é um número inteiro que pode assumir valor mínimo igual a 0 (nenhuma espécie) e em teoria, não tem limite superior (ainda que neste exemplo, o número máximo encontrados seja de 40 espécies).</p></li>
+<li><p><em>Variáveis quantitativas contínuas</em>: envolvem quantias <em>não-enumeráveis</em> como a vazão em <span class="math inline">\(m^3/seg\)</span> que verte de uma cachoeira, o volume de chuva em um determinado dia, altura da maré ou a velocidade do vento. O limite de precisão que utilizamos para representá-las depende basicamente da capacidade de mensuração dos aparelhos disponíveis. Em nosso exemplo, temos diversas variáveis deste tipo como <code>pH</code>, <code>Condutividade</code>, <code>Fosforo_total</code>.</p></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Transformando variáveis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sempre é possível transformar variáveis quantitativas em qualitativas. Se temos uma variável medindo o comprimento de peixes desembarcados em centímetros (variável quantitativa), é possível expressá-la de forma categórica em <em>peixes grandes</em> e <em>peixes pequenos</em> (variável qualitativa). Por outro lado, se tivermos somente a informação de que um peixe é grande ou pequeno, não podemos recuperar as quantias numéricas originais. Ao transformar uma variável de quantitativa em qualitativa, algumas propriedades são perdidas.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="níveis-de-mensuração" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="níveis-de-mensuração"><span class="header-section-number">1.4</span> Níveis de mensuração</h2>
+<p>Podemos organizar uma variável a partir de seu nível de mensuração (<a href="#fig-niveis_mensuracao">Figura&nbsp;<span>1.1</span></a>), dado em: <strong>nominal</strong>, <strong>ordinal</strong>, <strong>intervalar</strong> e <strong>razão</strong>.</p>
+<p>Nível nominal: é característico de variáveis que possuem níveis não ordenaveis. Ex. cor, grupo taxonômico, nomes de cidades, etc.</p>
+<ul>
+<li><p><em>Nível ordinal</em>: é aquele em que os níveis podem ser ordenados, embora não seja possível quantificar as diferenças entre dois níveis. Ex. i - Ordem de chegada de maratonistas em uma competição (<span class="math inline">\(1^o\)</span>,<span class="math inline">\(2^o\)</span>,<span class="math inline">\(3^o\)</span>,<span class="math inline">\(\cdots\)</span>). ii - Condição de saneamento das cidades (<strong>ótimo, bom, ruim, péssimo</strong>). iii - Condição de saneamento das praias da baixada santista (<strong>próprio, imprórpio</strong>). No nível ordinal podemos ordenar os elementos porém não podemos quantificar as diferenças entre eles.</p></li>
+<li><p><em>Nível intervalar</em>: é aquele em que além ser possível ordenar, é possível quantificar as diferenças entre duas observações. No entanto, não há um ponto inicial natural, ou seja, um ponto zero que indique ausência da quantia. Ex. i – <em>Temperatura</em>: <span class="math inline">\(0^oC\)</span> não indica ausência de temperatura, assim como <span class="math inline">\(10^oC\)</span> não é duas vezes mais quente que <span class="math inline">\(5^oC\)</span>. Essas características são somente uma convenção relacionada à escala de mensuração da temperatura. ii - <em>Ano do calendário</em>: o ano zero é uma convenção do calendário, não significa ausência de tempo.</p></li>
+<li><p><em>Nível de razão</em>: é como o intervalar, porém existe um ponto zero natural. Peso igual a <span class="math inline">\(0\)</span> kg indica ausência de peso e dez quilogramas é duas vezes mais pesado que <span class="math inline">\(5\)</span> kg. O mesmo vale para comprimento, distância, velocidade, número de ovos.</p></li>
+</ul>
+<hr>
+<div id="fig-niveis_mensuracao" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/Niveis_de_mensuracao.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 1.1: Tipos de variáveis e níveis de mensuração.</figcaption><p></p>
+</figure>
+</div>
+<hr>
+<p>A depender do nível de mensuração, algumas operações matemáticas podem ou não fazer sentido. Por exemplo, se uma espécie tem <span class="math inline">\(N_A = 100\)</span> indivíduos na região A e <span class="math inline">\(N_B = 200\)</span> na região B, a segunda região é duas vezes mais populosa pois <span class="math inline">\(\frac{N_B}{N_A} = 2\)</span>. Por outro lado, se a temperatura na região A é de <span class="math inline">\(T_A = 10^oC\)</span> enquanto na B é de <span class="math inline">\(T_B = 20^oC\)</span> não faz sentido fazer <span class="math inline">\(\frac{T_B}{T_A} = 2\)</span> e dizer que B seja duas vezes mais quente que A. Ainda que matematicamente a operação seja possível nos dois exemplos, no último sua interpretação física não tem sentido.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tipos de dados <em>vs</em> níveis de mensuração
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Existe uma relação entre tipo de dados e nível de mensuração. Os níveis nominal e ordinal de mensuração se referem a variáveis qualitativas não-ordenadas e qualitativas ordenadas respectivamente. Já os níveis intervalar e razão se referem a variáveis quantitativas, podendo ser discretas ou contínuas.</p>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-rodriguesetal2005" class="csl-entry" role="doc-biblioentry">
+Rodrigues, Liliana, Sidinei Magela Thomaz, Angelo Antonio Agostinho, and Luiz Carlos Gomes. 2005. <em>Biocenoses Em Reservatórios: Padrões Espaciais e Temporais</em>. Rima.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../qmd/01_estrutura_dados/00-PART-estrutura_dados.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Estrutura de dados</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../qmd/01_estrutura_dados/02-procdados.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Processamento de dados</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
