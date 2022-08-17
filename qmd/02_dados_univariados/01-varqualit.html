@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -55,7 +118,10 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
+<link href="../../site_libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
+<link href="../../site_libs/tabwid-1.0.0/scrool.css" rel="stylesheet">
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -218,14 +284,22 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Conteúdo</h2>
+   
+  <ul>
+  <li><a href="#representação-em-tabelas-de-frequência" id="toc-representação-em-tabelas-de-frequência" class="nav-link active" data-scroll-target="#representação-em-tabelas-de-frequência"> <span class="header-section-number">3.1</span> Representação em tabelas de frequência</a></li>
+  <li><a href="#tabelas-de-frequência-para-variáveis-categóricas-ordenadas" id="toc-tabelas-de-frequência-para-variáveis-categóricas-ordenadas" class="nav-link" data-scroll-target="#tabelas-de-frequência-para-variáveis-categóricas-ordenadas"> <span class="header-section-number">3.2</span> Tabelas de frequência para variáveis categóricas ordenadas</a></li>
+  <li><a href="#representação-gráfica" id="toc-representação-gráfica" class="nav-link" data-scroll-target="#representação-gráfica"> <span class="header-section-number">3.3</span> Representação gráfica</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="varqualit" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descrevendo variáveis qualitativas</span></span></h1>
+<h1 class="title"><span id="sec-varqualit" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descrevendo variáveis qualitativas</span></span></h1>
 </div>
 
 
@@ -239,8 +313,399 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pacotes e funções utilizadas no capítulo
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Variáveis qualitativas podem ser categóricas não-ordenadas ou categóricas ordenadas. A descrição de variáveis desta natureza se dá por meio da contagem e da representação dos níveis destas variáveis por meio da contagem total, pelos valores relativos ou percentuais.</p>
+<p>Importe a base de dados <code>Reservatorios_Parana_parcial.csv</code>.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> <span class="fu">read_delim</span>(<span class="st">'Reservatorios_Parana_parcial.csv'</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">delim =</span> <span class="st">','</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">'.'</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">encoding =</span> <span class="st">'latin1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Na tabela, temos 3 variáveis categóricas: <code>Reservatorio</code>, <code>Bacia</code> e <code>Trofia</code>. A primeira identifica cada reservatório pelo seu nome. A segunda é uma variável categórica não-ordenada (nível de mensuração nominal) e a terceira uma variável categórica ordenada (nível de mensuração ordinal).</p>
+<section id="representação-em-tabelas-de-frequência" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="representação-em-tabelas-de-frequência"><span class="header-section-number">3.1</span> Representação em tabelas de frequência</h2>
+<p>Como discutimos no capítulo <a href="../01_estrutura_dados/01-estrdados.html"><span>Capítulo&nbsp;1</span></a>, se uma variável é descrita no nível de mensuração nominal, como é o caso de <code>Bacia</code>, podemos obter a frequência com que cada um dos níveis aparece na variável. Essa contagem pode ser obtda por meio de uma <em>tabela de frequências</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fbacia <span class="ot">=</span> res <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Bacia) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Frequencia =</span> <span class="fu">n</span>())</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>fbacia <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-faa466a2{}.cl-faa00b34{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-faa01e62{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-faa01e6c{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-faa04d56{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faa04d60{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faa04d6a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faa04d7e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faa04d88{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faa04d89{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-faa466a2">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-faa04d88"><p class="cl-faa01e62"><span class="cl-faa00b34">Bacia</span></p></td><td class="cl-faa04d89"><p class="cl-faa01e6c"><span class="cl-faa00b34">Frequencia</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-faa04d56"><p class="cl-faa01e62"><span class="cl-faa00b34">Iguacu</span></p></td><td class="cl-faa04d60"><p class="cl-faa01e6c"><span class="cl-faa00b34">13</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faa04d56"><p class="cl-faa01e62"><span class="cl-faa00b34">Ivai</span></p></td><td class="cl-faa04d60"><p class="cl-faa01e6c"><span class="cl-faa00b34">2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faa04d56"><p class="cl-faa01e62"><span class="cl-faa00b34">Litoranea</span></p></td><td class="cl-faa04d60"><p class="cl-faa01e6c"><span class="cl-faa00b34">4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faa04d56"><p class="cl-faa01e62"><span class="cl-faa00b34">Paranapanema</span></p></td><td class="cl-faa04d60"><p class="cl-faa01e6c"><span class="cl-faa00b34">7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faa04d56"><p class="cl-faa01e62"><span class="cl-faa00b34">Piriqui</span></p></td><td class="cl-faa04d60"><p class="cl-faa01e6c"><span class="cl-faa00b34">2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faa04d6a"><p class="cl-faa01e62"><span class="cl-faa00b34">Tibagi</span></p></td><td class="cl-faa04d7e"><p class="cl-faa01e6c"><span class="cl-faa00b34">3</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<p>O resultado mostra que existem 13 reservatórios na tabela pertancentes à bacia do rio Iguacu, 2 à bacia do rio Ivai e assim por diante. Confira estas contagens na base de dados.</p>
+<p>As linhas da tabela estão organizadas em ordem alfabética. Para facilitar a visualização, podemos ordená-las de modo decrescente como função do número de reservatórios por bacia.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fbacia <span class="ot">=</span> fbacia <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Frequencia))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>fbacia <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-fab2ba54{}.cl-faadbcde{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-faadc918{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-faadc922{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-faae0086{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faae009a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faae00a4{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faae00b8{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faae00c2{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faae00e0{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-fab2ba54">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-faae00c2"><p class="cl-faadc918"><span class="cl-faadbcde">Bacia</span></p></td><td class="cl-faae00e0"><p class="cl-faadc922"><span class="cl-faadbcde">Frequencia</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-faae0086"><p class="cl-faadc918"><span class="cl-faadbcde">Iguacu</span></p></td><td class="cl-faae009a"><p class="cl-faadc922"><span class="cl-faadbcde">13</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faae0086"><p class="cl-faadc918"><span class="cl-faadbcde">Paranapanema</span></p></td><td class="cl-faae009a"><p class="cl-faadc922"><span class="cl-faadbcde">7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faae0086"><p class="cl-faadc918"><span class="cl-faadbcde">Litoranea</span></p></td><td class="cl-faae009a"><p class="cl-faadc922"><span class="cl-faadbcde">4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faae0086"><p class="cl-faadc918"><span class="cl-faadbcde">Tibagi</span></p></td><td class="cl-faae009a"><p class="cl-faadc922"><span class="cl-faadbcde">3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faae0086"><p class="cl-faadc918"><span class="cl-faadbcde">Ivai</span></p></td><td class="cl-faae009a"><p class="cl-faadc922"><span class="cl-faadbcde">2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faae00a4"><p class="cl-faadc918"><span class="cl-faadbcde">Piriqui</span></p></td><td class="cl-faae00b8"><p class="cl-faadc922"><span class="cl-faadbcde">2</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<p>Podemos olhar também para a <strong>frequência relativa</strong> do número de reservatórios por bacia.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fbacia_rel <span class="ot">=</span> fbacia <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Freq_relativa =</span> Frequencia <span class="sc">/</span> <span class="fu">sum</span>(Frequencia))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>fbacia_rel <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-fac02130{}.cl-fabb9958{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fabba916{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fabba92a{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fabbd864{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fabbd878{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fabbd882{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fabbd896{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fabbd8a0{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fabbd8aa{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-fac02130">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-fabbd8a0"><p class="cl-fabba916"><span class="cl-fabb9958">Bacia</span></p></td><td class="cl-fabbd8aa"><p class="cl-fabba92a"><span class="cl-fabb9958">Frequencia</span></p></td><td class="cl-fabbd8aa"><p class="cl-fabba92a"><span class="cl-fabb9958">Freq_relativa</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fabbd864"><p class="cl-fabba916"><span class="cl-fabb9958">Iguacu</span></p></td><td class="cl-fabbd878"><p class="cl-fabba92a"><span class="cl-fabb9958">13</span></p></td><td class="cl-fabbd878"><p class="cl-fabba92a"><span class="cl-fabb9958">0.41935484</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fabbd864"><p class="cl-fabba916"><span class="cl-fabb9958">Paranapanema</span></p></td><td class="cl-fabbd878"><p class="cl-fabba92a"><span class="cl-fabb9958">7</span></p></td><td class="cl-fabbd878"><p class="cl-fabba92a"><span class="cl-fabb9958">0.22580645</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fabbd864"><p class="cl-fabba916"><span class="cl-fabb9958">Litoranea</span></p></td><td class="cl-fabbd878"><p class="cl-fabba92a"><span class="cl-fabb9958">4</span></p></td><td class="cl-fabbd878"><p class="cl-fabba92a"><span class="cl-fabb9958">0.12903226</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fabbd864"><p class="cl-fabba916"><span class="cl-fabb9958">Tibagi</span></p></td><td class="cl-fabbd878"><p class="cl-fabba92a"><span class="cl-fabb9958">3</span></p></td><td class="cl-fabbd878"><p class="cl-fabba92a"><span class="cl-fabb9958">0.09677419</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fabbd864"><p class="cl-fabba916"><span class="cl-fabb9958">Ivai</span></p></td><td class="cl-fabbd878"><p class="cl-fabba92a"><span class="cl-fabb9958">2</span></p></td><td class="cl-fabbd878"><p class="cl-fabba92a"><span class="cl-fabb9958">0.06451613</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fabbd882"><p class="cl-fabba916"><span class="cl-fabb9958">Piriqui</span></p></td><td class="cl-fabbd896"><p class="cl-fabba92a"><span class="cl-fabb9958">2</span></p></td><td class="cl-fabbd896"><p class="cl-fabba92a"><span class="cl-fabb9958">0.06451613</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<p>A característica da frequência relativa, é que o somatório da coluna deve ser igual a <span class="math inline">\(1\)</span>, enquanto a frequência numérica tem o somatório igual ao número de linhas na tabela.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fbacia_rel <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_if</span>(is.numeric, sum) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-facd4810{}.cl-fac85fbc{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fac86b06{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fac88ff0{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fac8900e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-facd4810">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-fac8900e"><p class="cl-fac86b06"><span class="cl-fac85fbc">Frequencia</span></p></td><td class="cl-fac8900e"><p class="cl-fac86b06"><span class="cl-fac85fbc">Freq_relativa</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fac88ff0"><p class="cl-fac86b06"><span class="cl-fac85fbc">31</span></p></td><td class="cl-fac88ff0"><p class="cl-fac86b06"><span class="cl-fac85fbc">1</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+<section id="tabelas-de-frequência-para-variáveis-categóricas-ordenadas" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="tabelas-de-frequência-para-variáveis-categóricas-ordenadas"><span class="header-section-number">3.2</span> Tabelas de frequência para variáveis categóricas ordenadas</h2>
+<p>A característica da variável <code>Trofia</code> difere da anterior unicamente por ser uma variável categórica ordenada que no caso, expressa o grau de eutrofização dos reservatórios. Neste sentido, a única mudança na representação da variável se deve ao fato de que existe uma sequência natural para representar os níveis. Podemos indicar que uma determinada variável é categórica ordenada fazendo uma pequena alteração na base de dados.</p>
+<p>Se montarmos uma tabela de frequência da variável trofia, teremos as linhas organizadas em ordem alfabética:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ftrofia <span class="ot">=</span> res <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Trofia) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Frequencia =</span> <span class="fu">n</span>())</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ftrofia <span class="sc">%&gt;%</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-fad9eb4c{}.cl-fad58228{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fad59236{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fad5924a{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fad5b6ee{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fad5b702{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fad5b70c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fad5b716{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fad5b72a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fad5b734{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-fad9eb4c">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-fad5b734"><p class="cl-fad59236"><span class="cl-fad58228">Trofia</span></p></td><td class="cl-fad5b72a"><p class="cl-fad5924a"><span class="cl-fad58228">Frequencia</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fad5b6ee"><p class="cl-fad59236"><span class="cl-fad58228">Eutrófico</span></p></td><td class="cl-fad5b702"><p class="cl-fad5924a"><span class="cl-fad58228">2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fad5b6ee"><p class="cl-fad59236"><span class="cl-fad58228">Mesotrófico</span></p></td><td class="cl-fad5b702"><p class="cl-fad5924a"><span class="cl-fad58228">3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fad5b6ee"><p class="cl-fad59236"><span class="cl-fad58228">Oligotrófico</span></p></td><td class="cl-fad5b702"><p class="cl-fad5924a"><span class="cl-fad58228">24</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fad5b716"><p class="cl-fad59236"><span class="cl-fad58228"></span></p></td><td class="cl-fad5b70c"><p class="cl-fad5924a"><span class="cl-fad58228">2</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<p>Se desejarmos que as colunas apareçam como função do nível de eutrofização, devemos primeiro transformar a variável bacia em um <strong>fator ordenado</strong> que é o modo como o R interpreta uma <strong>variável categórica ordenada</strong>.</p>
+<p>Inicialmente, use o comando abaixo para verificar que o R entende a variável <code>Trofia</code> como um <em>character</em> (<code>&lt;chr&gt;</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 31
+Columns: 11
+$ Reservatorio  &lt;chr&gt; "Cavernoso", "Curucaca", "Foz do Areia", "Irai", "JMF", …
+$ Bacia         &lt;chr&gt; "Iguacu", "Iguacu", "Iguacu", "Iguacu", "Iguacu", "Iguac…
+$ Fechamento    &lt;dbl&gt; 1965, 1982, 1980, 2000, 1970, 1996, 1978, 1979, 1998, 19…
+$ Area          &lt;dbl&gt; 2.90, 2.00, 139.00, 15.00, 0.45, 3.40, 14.00, 3.30, 124.…
+$ Trofia        &lt;chr&gt; "Oligotrófico", "Oligotrófico", "Oligotrófico", "Eutrófi…
+$ pH            &lt;dbl&gt; 7.4, 7.0, 7.3, 6.9, 7.3, 7.1, 8.8, 7.1, 7.3, 6.5, 8.6, 9…
+$ Condutividade &lt;dbl&gt; 33.1, 32.4, 35.5, 50.2, 40.2, 23.7, 125.6, 22.8, 39.6, 2…
+$ Alcalinidade  &lt;dbl&gt; 139.80, 125.70, 97.00, 3.30, 3.70, 152.70, 526.00, 50.67…
+$ P.total       &lt;dbl&gt; 7.8, 4.7, 14.3, 53.4, 41.2, 3.3, 15.2, 4.5, 12.1, 11.0, …
+$ Riqueza       &lt;dbl&gt; 18, 16, 19, 12, 18, 17, 11, 8, 21, 8, 24, 21, 22, 15, 10…
+$ CPUE          &lt;dbl&gt; 9.22, 28.73, 11.59, 30.76, 5.95, 7.75, 7.51, 4.01, 20.83…</code></pre>
+</div>
+</div>
+<p>Iremos transformar esta variável para que o R a interprete como uma variável categórica ordenada.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> res <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Trofia =</span> <span class="fu">factor</span>(Trofia, <span class="at">ordered =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'Oligotrófico'</span>, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">'Mesotrófico'</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">'Eutrófico'</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Após aplicarmos este comando, vemos que agora o R reconhece esta variável como do tipo <code>&lt;ord&gt;</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 31
+Columns: 11
+$ Reservatorio  &lt;chr&gt; "Cavernoso", "Curucaca", "Foz do Areia", "Irai", "JMF", …
+$ Bacia         &lt;chr&gt; "Iguacu", "Iguacu", "Iguacu", "Iguacu", "Iguacu", "Iguac…
+$ Fechamento    &lt;dbl&gt; 1965, 1982, 1980, 2000, 1970, 1996, 1978, 1979, 1998, 19…
+$ Area          &lt;dbl&gt; 2.90, 2.00, 139.00, 15.00, 0.45, 3.40, 14.00, 3.30, 124.…
+$ Trofia        &lt;ord&gt; Oligotrófico, Oligotrófico, Oligotrófico, Eutrófico, Mes…
+$ pH            &lt;dbl&gt; 7.4, 7.0, 7.3, 6.9, 7.3, 7.1, 8.8, 7.1, 7.3, 6.5, 8.6, 9…
+$ Condutividade &lt;dbl&gt; 33.1, 32.4, 35.5, 50.2, 40.2, 23.7, 125.6, 22.8, 39.6, 2…
+$ Alcalinidade  &lt;dbl&gt; 139.80, 125.70, 97.00, 3.30, 3.70, 152.70, 526.00, 50.67…
+$ P.total       &lt;dbl&gt; 7.8, 4.7, 14.3, 53.4, 41.2, 3.3, 15.2, 4.5, 12.1, 11.0, …
+$ Riqueza       &lt;dbl&gt; 18, 16, 19, 12, 18, 17, 11, 8, 21, 8, 24, 21, 22, 15, 10…
+$ CPUE          &lt;dbl&gt; 9.22, 28.73, 11.59, 30.76, 5.95, 7.75, 7.51, 4.01, 20.83…</code></pre>
+</div>
+</div>
+<p>E se fizermos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>Trofia</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] Oligotrófico Oligotrófico Oligotrófico Eutrófico    Mesotrófico 
+ [6] Oligotrófico Oligotrófico Oligotrófico Oligotrófico Oligotrófico
+[11] Oligotrófico Oligotrófico Oligotrófico Oligotrófico Mesotrófico 
+[16] Oligotrófico Oligotrófico Oligotrófico Mesotrófico  Oligotrófico
+[21] Oligotrófico Oligotrófico Oligotrófico &lt;NA&gt;         Oligotrófico
+[26] Oligotrófico Eutrófico    Oligotrófico Oligotrófico &lt;NA&gt;        
+[31] Oligotrófico
+Levels: Oligotrófico &lt; Mesotrófico &lt; Eutrófico</code></pre>
+</div>
+</div>
+<p>Temos agora a indicação de que há uma ordenação sequêncial nos níveis de trofia em que<code>Oligotrófico &lt; Mesotrófico &lt; Eutrófico</code>.</p>
+<p>A partir de agora, se extrairmos uma tabela de frequência relativa, as linhas serão apresentadas na ordem pré-definida.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ftrofia <span class="ot">=</span> res <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Trofia) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Frequencia =</span> <span class="fu">n</span>())</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>ftrofia <span class="sc">%&gt;%</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-faed12b2{}.cl-fae755c0{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fae76006{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fae7601a{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fae77f32{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae77f46{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae77f50{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae77f5a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae77f6e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fae77f78{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-faed12b2">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-fae77f78"><p class="cl-fae76006"><span class="cl-fae755c0">Trofia</span></p></td><td class="cl-fae77f6e"><p class="cl-fae7601a"><span class="cl-fae755c0">Frequencia</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fae77f32"><p class="cl-fae76006"><span class="cl-fae755c0">Oligotrófico</span></p></td><td class="cl-fae77f46"><p class="cl-fae7601a"><span class="cl-fae755c0">24</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae77f32"><p class="cl-fae76006"><span class="cl-fae755c0">Mesotrófico</span></p></td><td class="cl-fae77f46"><p class="cl-fae7601a"><span class="cl-fae755c0">3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae77f32"><p class="cl-fae76006"><span class="cl-fae755c0">Eutrófico</span></p></td><td class="cl-fae77f46"><p class="cl-fae7601a"><span class="cl-fae755c0">2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fae77f5a"><p class="cl-fae76006"><span class="cl-fae755c0"></span></p></td><td class="cl-fae77f50"><p class="cl-fae7601a"><span class="cl-fae755c0">2</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<p>Na tabela acima a última linha aparece vazia, pois há casos sem informação, isto é, com dados faltantes que são representados por <code>NA</code>. Caso você não queira representar os dados faltantes, é possível utilizar a função <code>drop_na()</code> para excluir estas linhas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ftrofia <span class="ot">=</span> res <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Trofia) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Trofia) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Frequencia =</span> <span class="fu">n</span>())</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>ftrofia <span class="sc">%&gt;%</span> </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-fafa5846{}.cl-faf5d974{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-faf5e554{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-faf5e568{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-faf60f8e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faf60fa2{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faf60fb6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faf60fca{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faf60fd4{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-faf60fde{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-fafa5846">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-faf60fde"><p class="cl-faf5e554"><span class="cl-faf5d974">Trofia</span></p></td><td class="cl-faf60fd4"><p class="cl-faf5e568"><span class="cl-faf5d974">Frequencia</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-faf60fa2"><p class="cl-faf5e554"><span class="cl-faf5d974">Oligotrófico</span></p></td><td class="cl-faf60f8e"><p class="cl-faf5e568"><span class="cl-faf5d974">24</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faf60fa2"><p class="cl-faf5e554"><span class="cl-faf5d974">Mesotrófico</span></p></td><td class="cl-faf60f8e"><p class="cl-faf5e568"><span class="cl-faf5d974">3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-faf60fca"><p class="cl-faf5e554"><span class="cl-faf5d974">Eutrófico</span></p></td><td class="cl-faf60fb6"><p class="cl-faf5e568"><span class="cl-faf5d974">2</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<p>Podemos adicionar uma coluna de frequência relativa como fizemos anteriormente.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ftrofia_rel <span class="ot">=</span> ftrofia <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Freq_relativa =</span> Frequencia <span class="sc">/</span> <span class="fu">sum</span>(Frequencia))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>ftrofia_rel <span class="sc">%&gt;%</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-fb06bb18{}.cl-fb031044{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fb031c9c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fb031cb0{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fb03405a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb03406e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb034078{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb03408c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb034096{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb0340aa{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-fb06bb18">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-fb0340aa"><p class="cl-fb031c9c"><span class="cl-fb031044">Trofia</span></p></td><td class="cl-fb034096"><p class="cl-fb031cb0"><span class="cl-fb031044">Frequencia</span></p></td><td class="cl-fb034096"><p class="cl-fb031cb0"><span class="cl-fb031044">Freq_relativa</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fb03406e"><p class="cl-fb031c9c"><span class="cl-fb031044">Oligotrófico</span></p></td><td class="cl-fb03405a"><p class="cl-fb031cb0"><span class="cl-fb031044">24</span></p></td><td class="cl-fb03405a"><p class="cl-fb031cb0"><span class="cl-fb031044">0.82758621</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb03406e"><p class="cl-fb031c9c"><span class="cl-fb031044">Mesotrófico</span></p></td><td class="cl-fb03405a"><p class="cl-fb031cb0"><span class="cl-fb031044">3</span></p></td><td class="cl-fb03405a"><p class="cl-fb031cb0"><span class="cl-fb031044">0.10344828</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb034078"><p class="cl-fb031c9c"><span class="cl-fb031044">Eutrófico</span></p></td><td class="cl-fb03408c"><p class="cl-fb031cb0"><span class="cl-fb031044">2</span></p></td><td class="cl-fb03408c"><p class="cl-fb031cb0"><span class="cl-fb031044">0.06896552</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+<section id="representação-gráfica" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="representação-gráfica"><span class="header-section-number">3.3</span> Representação gráfica</h2>
+<p>Variáveis categóricas não-ordenadas ou ordenadas podem ser representadas por <strong>gráficos de barras</strong>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+O pacote <code>ggplot2</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Utilizaremos o pacote <code>ggplot2</code> para representar graficamente as variáveis. O <code>ggplot2</code> é instalado e habilitado juntamente com o <code>tidyverse</code>, de modo que neste momento você já o tem habilitado em sua seção do R.</p>
+<p>Para uma rápida explicação do <code>ggplot2</code> veja <a href="https://fcopf.github.io/probest-introR/ggplot2.html" target="_blank">aqui</a>. Para uma explicação detalhada veja o site oficial (<a href="https://ggplot2.tidyverse.org/">ggplot2</a>){target=“_blank”} e o livro <a href="https://ggplot2-book.org/" target="_blank">ggplot2: Elegant Graphics for Data Analysis</a>.</p>
+</div>
+</div>
+<section id="criando-um-gráfico-no-ggplot2" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="criando-um-gráfico-no-ggplot2"><span class="header-section-number">3.3.1</span> Criando um gráfico no <code>ggplot2</code></h3>
+<p>Um gráfico no <code>ggplot2</code> é feito em camadas que devem ter minimamente:</p>
+<ol type="1">
+<li>A definição da tabela de dados;</li>
+<li>A estética gráfica indicando quais serão representadas e suas posições no gráfico;</li>
+<li>O formato da representação por meoipr de geometrias gráficas (ex. gráficos de pontos, linhas, barras, etc.).</li>
+</ol>
+<p>Esta abordagem permite que tenhamos um método consistente para construir diferentes tipos gráficos.</p>
+<p><strong>Gráfico de frequência</strong></p>
+<p>Um gráfico de barras da variável <code>Bacia</code> ficaria:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> res) <span class="sc">+</span> <span class="co"># define tabela de dados.</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> Bacia) <span class="sc">+</span>   <span class="co"># define a estética gráfica</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()         <span class="co"># define a geometria gráfica</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Vamos entender o comando:</p>
+<ul>
+<li><p><code>ggplot(res)</code>: define a tabela de dados que será utilizada.</p></li>
+<li><p><code>aes(x = Bacia)</code>: define que o eixo <span class="math inline">\(x\)</span> deste gráfico deverá contém os níveis da variável <code>Bacia</code>.</p></li>
+<li><p><code>geom_bar()</code>: define o tipo gráfico, que no <code>ggplot2</code> é denominado de <em>geometria gráfica</em></p></li>
+</ul>
+<p>Estes argumentos devem ser inseridos sequencialmente separados pelo símbolo <code>+</code>.</p>
+<p>O argumento <code>geom_bar()</code> espera como argumento uma variável qualitativa em um dos eixos. Por padrão, a função fará a contagem dos níveis dentro da variável e apresentará a representará em <span class="math inline">\(y\)</span>.</p>
+<p>Poderíamos ter feito o mesmo gráfico de barras indicando que a variável <code>Bacia</code> seria representada no eixo <span class="math inline">\(y\)</span> o que resultaria em um gráfico de barras invertido conforme abaixo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> res) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> Bacia) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>A estética gráfica (<code>aes()</code>) não precisa estar em uma linha separada. Também não é obrigatório escrevermos <code>data = res</code>. De fato, é mais comum escrevermos esta sequência de argumentos como:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Bacia)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>ou simplesmente:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> Bacia)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>o que irá gerar os mesmos resultados.</p>
+<p>Finalmente, poderíamos organizar os barras em ordem decrescente como fizemos com as tabelas de frequência, utilizando a função <code>fct_infreq()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_infreq</span>(Bacia))) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>ou em ordem crescente, revertendo o comando anterior com a função <code>fct_rev()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_rev</span>(<span class="fu">fct_infreq</span>(Bacia)))) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><strong>Formatanto a figura</strong></p>
+<p>Para tornar a figura mais auto-explicativa, podemos adicionar camadas identificando os eixos e fornecendo, título, subtítulo e outras informações:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> Bacia)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Reservatórios do Estado do Paraná'</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">'Reservatórios por bacia hidrográfica'</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">'Dados obtidos do livro: Biocenoses em Reservatórios'</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">'Bacia hidrográfica'</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">'Frequência'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><strong>Gráfico de frequência relativa</strong></p>
+<p>Utilizando o <code>ggplot2</code> é simples construir um gráfico de frequência relativa.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> Bacia, <span class="at">y =</span> ..prop.., <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Veja que para isto transformou as contagens em proporções. Se quisermos transformar em percentuais então:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> Bacia, <span class="at">y =</span> ..prop.., <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<hr>
+<p><strong>Outras opções para construir um gráfico de barras</strong></p>
+<p>As figuras que acabamos de fazer apresentam, do modo gráfico, as mesmas informações das tabelas de frequência vistas no início do capítulo sem que fosse necessário contruir a tabela de frequência, pois o comando <code>geom_bar()</code> já realiza esta contagem.</p>
+<p>Entretanto, caso já tivéssemos a tabela de frequência também poderíamos utilizá-la diretamente. No início do capítulo, contruímos a tabela <code>fbacia_rel</code> onde tínhamos 3 colunas: Bacia, Frequencia, Freq_relativa.</p>
+<p>Podemos construir gráficos de barras das tabelas <code>Frequencia</code> ou <code>Freq_relativa</code> da seguinte forma:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fbacia_rel, <span class="fu">aes</span>(<span class="at">x =</span> Bacia, <span class="at">y =</span> Frequencia)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">'identity'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>e</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fbacia_rel, <span class="fu">aes</span>(<span class="at">x =</span> Bacia, <span class="at">y =</span> Freq_relativa)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">'identity'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Para utilizar diretamente uma tabela de frequências, devemos oferecer a variável do eixo <span class="math inline">\(x\)</span>, do eixo <span class="math inline">\(y\)</span> e no comando <code>geom_bar()</code>, adicionar o argumento <code>stat = 'identity'</code>. Feito isso, o comando utiliza diretamente os números disponíveis em cada linha da coluna <code>Frequencia</code>.</p>
+<hr>
+<p><strong>Gráfico de frequência para variáveis categóricas ordenadas</strong></p>
+<p>Para variáveis categóricas ordenadas valem os mesmos comandos apresentados acima. Usamos a função <code>geom_bar()</code> para construir os gráficos de barras. A diferença é que antes da construção, é necessário que a variável em questão tenha sido transformada para um <strong>fator ordenado</strong>.</p>
+<p>Lembrando o que fizemos no início do capítulo, esta transformação pode ser feita para a variável <code>Trofia</code> com os comandos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> res <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Trofia =</span> <span class="fu">factor</span>(Trofia, <span class="at">ordered =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'Oligotrófico'</span>, </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">'Mesotrófico'</span>, </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">'Eutrófico'</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Feito isto, o comando <code>geom_bar()</code> vai organizar os níveis de acordo com a sequência definida:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> Trofia)) <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>E caso seja necessário retirar reservatórios com dados faltantes em <code>Trofia</code>, podemos fazer:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>res <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Trofia) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Trofia)) <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-varqualit_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pré-processamento do data-frame para o <code>ggplot2</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No comando acima, a tabela de dados não foi inserida dentro do comando <code>ggplot()</code>. Ela foi inicialmente processada para remoção de <code>NA</code>s com a função <code>drop_na()</code> e o operador <code>%&gt;%</code> foi utilizado para inserir o resultado do processamento no <code>ggplot()</code>. Esta é outra maneira de combinar capacidade de processamento de dados no R, conforme apresentado no <a href="../01_estrutura_dados/02-procdados.html"><span>Capítulo&nbsp;2</span></a>, com a representação gráfica.</p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
