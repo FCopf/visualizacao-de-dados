@@ -1,4 +1,4 @@
-# Estrutura e tipo de dados {#estrdados}
+# Estrutura e tipo de dados {#sec-estrdados}
 
 :::{.callout-tip collapse="true"}
 ## Pacotes e funções utilizadas no capítulo
@@ -6,7 +6,6 @@
 ```{r}
 library(tidyverse)
 library(flextable)
-#library(officer)
 ```
 :::
 
@@ -22,10 +21,14 @@ res = read_delim("datasets/Reservatorios_Parana_parcial.csv",
 ```
 
 ```{r}
+#| label: tbl-biocenoses
+#| tbl-cap: 'Variáveis ambientais e captura de peixes em reserrvatórios da bacia do rio Paraná.'
 res %>%
   flextable() %>% 
   fit_to_width(max_width = 8)
 ```
+
+
 
 ```{r}
 #| echo: false
@@ -34,7 +37,7 @@ trofia_niveis = factor(res$Trofia, levels = c('Oligotrófico', 'Mesotrófico', '
   paste(collapse = ' < ')
 ```
 
-A tabela é formada por `r nrow(res)` linhas referentes a reservatórios do estado do Paraná e `r ncol(res)` colunas em que constam informações sobre cada reservatório, sendo elas:
+A tabela @tbl-biocenoses é formada por `r nrow(res)` linhas referentes a reservatórios do estado do Paraná e `r ncol(res)` colunas em que constam informações sobre cada reservatório, sendo elas:
 
 **`r names(res)[1]`**: nome do reservatório;
 
@@ -64,6 +67,8 @@ A tabela é formada por `r nrow(res)` linhas referentes a reservatórios do esta
 Esta tabela está organizada no formato em que cada linha representa uma **unidade amostral (UA)** e cada coluna representa uma **variável (VA)** que descreve determinada característica desta observação. Ao longo dos próximos capítulos veremos diversos conjuntos de dados organizados neste formato.
 
 ```{r}
+#| label: tbl-estrutura
+#| tbl-cap: 'Estrutura de uma base de dados em que as colunas representam as variáveis (ou atributos) e as linhas representam as unidades amostrais (ou observações)'
 #| echo: false
 linhas = 10
 data.frame(ID = paste('UA', 1:linhas, by = ' ')) %>%
@@ -84,7 +89,7 @@ i = 1
 ```
 
 
-No exemplo referentes aos reservatórios do Paraná, cada unidade amostral (linhas da tabela) é um reservatório. Os reservatórios são descritos por meio das variáveis dispostas nas colunas da tabela. O reservatório de `r res$Reservatorio[i]` por exemplo faz parte da bacia do `r res$Bacia[i]`, foi formado no ano de `r res$Fechamento[i]`, tem área de `r res$Area[i]` $km^2$, pH igual a `r res$pH[i]` e assim por diante.
+No exemplo apresentado na @tbl-biocenoses segue a esrutura descrita acima (@tbl-estrutura), em que cada unidade amostral (linhas da tabela) é um reservatório descrito por variáveis (ou atributos) dispostas nas colunas da tabela. O reservatório de `r res$Reservatorio[i]` por exemplo faz parte da bacia do `r res$Bacia[i]`, foi formado no ano de `r res$Fechamento[i]`, tem área de `r res$Area[i]` $km^2$, pH igual a `r res$pH[i]` e assim por diante.
 
 :::{.callout-note}
 # Valores faltantes

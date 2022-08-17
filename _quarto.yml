@@ -50,7 +50,6 @@ knitr:
 format:
   html:
     theme: cosmo
-    
     code-fold: false
     toc: true
     toc-depth: 2
