@@ -1,1 +1,1 @@
-# Descrevendo variáveis quantitativas {#varquant}
+# Descrevendo variáveis quantitativas {#sec-varquant}

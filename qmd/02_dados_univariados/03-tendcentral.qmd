@@ -1,1 +1,1 @@
-# Medidas de tendência central {#tendcentral}
+# Medidas de tendência central {#sec-tendcentral}

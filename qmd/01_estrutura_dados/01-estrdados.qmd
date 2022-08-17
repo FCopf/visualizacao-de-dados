@@ -16,9 +16,23 @@ Utilizamos métodos de estatística descritiva para evidenciar informações rel
 Considere a tabela abaixo, construída a partir do livro de Biocenoses em Reservatórios: padrões espaciais e temporais [@rodriguesetal2005].
 
 ```{r}
-res = read_delim("datasets/Reservatorios_Parana_parcial.csv", 
-                  locale = locale(encoding = "latin1"))
+#| echo: false
+#| eval: true
+res = read_delim('datasets/Reservatorios_Parana_parcial.csv',
+                  delim = ',',
+                  locale = locale(decimal_mark = '.',
+                                  encoding = 'latin1'))
 ```
+
+```{r}
+#| echo: true
+#| eval: false
+res = read_delim('Reservatorios_Parana_parcial.csv',
+                  delim = ',',
+                  locale = locale(decimal_mark = '.',
+                                  encoding = 'latin1'))
+```
+
 
 ```{r}
 #| label: tbl-biocenoses

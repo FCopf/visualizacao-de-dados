@@ -1,1 +1,1 @@
-# Associação entre variáveis quantitativas e qualitativas {#biquantquali}
+# Associação entre variáveis quantitativas e qualitativas {#sec-biquantquali}

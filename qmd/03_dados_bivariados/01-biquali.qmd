@@ -1,1 +1,1 @@
-# Associação entre duas variáveis qualitativas {#biquali}
+# Associação entre duas variáveis qualitativas {#sec-biquali}
