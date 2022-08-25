@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+renv.lock
 
 /.quarto/
 docs/
