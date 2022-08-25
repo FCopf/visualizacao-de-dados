@@ -208,7 +208,7 @@ Os quartis de uma distribuição no ajudam a entender o formato de uma distribui
 ```{r}
 #| code-fold: true
 #| label: fig-boxplot
-#| fig.cap: 'Divisão em quartis de um boxplot'
+#| fig-cap: 'Divisão em quartis de um boxplot'
 #| fig-width: 4
 #| fig-height: 6
 #| fig-align: 'center'
