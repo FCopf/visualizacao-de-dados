@@ -1,4 +1,5 @@
-assimetria_ggplot = function(){
+assimetria_ggplot = function(fig = 'h'){
+  source('scripts/getmode.r')
   set.seed(2)
   df = data.frame(x1 = rlnorm(n = 1000, mean = 2, sd = 0.4),
                   x2 = rnorm(n = 1000),
@@ -92,5 +93,28 @@ assimetria_ggplot = function(){
     theme(axis.line.x = element_line(),
           axis.line.y = element_line())
   
-  p1 + p2 + p3
+  bx1 = ggplot(df, aes(x = x1)) +
+    geom_boxplot(fill = 'darkblue', coef = 10)
+  
+  bx2 = ggplot(df, aes(x = x2)) +
+    geom_boxplot(fill = 'darkblue', coef = 10)
+  
+  bx3 = ggplot(df, aes(x = x3)) +
+    geom_boxplot(fill = 'darkblue', coef = 10)  
+  
+  p4 = bx1 +
+    theme_void()
+
+  p5 = bx2 +
+    theme_void()
+
+  p6 = bx3 +
+    theme_void()  
+  
+    if (fig == 'bh'){
+    (p1 + p2 + p3)/(p4 + p5 + p6) +
+        plot_layout(heights = unit(c(5, 1), units = c('cm', 'cm')))
+    } else {
+      p1 + p2 + p3
+  }
 }

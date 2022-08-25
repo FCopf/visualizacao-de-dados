@@ -110,8 +110,9 @@ Cada um dos drescitores de tendência central descritos acima é mais ou menos s
 
 
 ```{r}
+#| label: fig-assimetria
 #| code-fold: true
-#| fig-cap: 'Efeito da assimetria de uma distribuição sobre o ponto médio, a média aritmética, a mediana e a moda'
+#| fig-cap: 'Efeito da assimetria de uma distribuição sobre o ponto médio, a média aritmética, a mediana e a moda.'
 #| fig-align: 'center'
 #| fig-width: 8
 #| fig-height: 3
