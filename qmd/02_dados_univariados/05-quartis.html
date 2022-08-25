@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -55,7 +118,10 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
+<link href="../../site_libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
+<link href="../../site_libs/tabwid-1.0.0/scrool.css" rel="stylesheet">
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -218,7 +284,16 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Conteúdo</h2>
+   
+  <ul>
+  <li><a href="#cálculo-dos-quartis-na-posição-j" id="toc-cálculo-dos-quartis-na-posição-j" class="nav-link active" data-scroll-target="#cálculo-dos-quartis-na-posição-j"> <span class="header-section-number">7.1</span> Cálculo dos quartis na posição <span class="math inline">\(j\)</span></a></li>
+  <li><a href="#cálculo-dos-quartis-no-r" id="toc-cálculo-dos-quartis-no-r" class="nav-link" data-scroll-target="#cálculo-dos-quartis-no-r"> <span class="header-section-number">7.2</span> Cálculo dos quartis no R</a></li>
+  <li><a href="#obtendo-os-quartis-a-partir-de-uma-tabela-de-dados" id="toc-obtendo-os-quartis-a-partir-de-uma-tabela-de-dados" class="nav-link" data-scroll-target="#obtendo-os-quartis-a-partir-de-uma-tabela-de-dados"> <span class="header-section-number">7.3</span> Obtendo os quartis a partir de uma tabela de dados</a></li>
+  <li><a href="#boxplots-uma-representação-gráfica-dos-quartis" id="toc-boxplots-uma-representação-gráfica-dos-quartis" class="nav-link" data-scroll-target="#boxplots-uma-representação-gráfica-dos-quartis"> <span class="header-section-number">7.4</span> Boxplots: uma representação gráfica dos quartis</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -239,8 +314,265 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pacotes e funções utilizadas no capítulo
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'scripts/assimetria_ggplot.r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>A média, mediana, moda e ponto médio são um tipo de <strong>medidas de posição</strong> que indicam uma posição particular, isto é, a posição central ao redor da qual os dados estão dispersos. Existem no entanto, outras medidas de posição como <strong>quartis</strong>, medidas comumente utilizadas na descrição, análise e interpretação de dados.</p>
+<p>Os quartis de uma distribuição de valores são obtidos após ordenarmos os dados em ordem crescente e em seguida agrupá-los em partes iguais, contendo cada uma 25% do número total de observações. Se temos 20 observações, cada parte conterá portanto cinco observações, <span class="math inline">\(20 \times 0.25 = 5\)</span>. Os quartis são as posições numéricas que dividem estas partes.</p>
+<p>Os quartis podem ser indicados por <span class="math inline">\(Q_1\)</span>, <span class="math inline">\(Q_2\)</span> e <span class="math inline">\(Q_3\)</span>, conforme a figura abaixo.</p>
+<div id="fig-quartis" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/quartis.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 7.1: Divisão de uma distribuição de valores em quartis.</figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Quartis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(Q_{1}\)</span> O ponto que separa os 25% <strong>menores</strong> valores do restante da distribuição.</p>
+<p><span class="math inline">\(Q_{2}\)</span>: O ponto que separa os 50% <strong>menores</strong> valores dos 50% <strong>maiores</strong>. Este coincide com a Mediana apresentada anteriormente.</p>
+<p><span class="math inline">\(Q_{3}\)</span>: O ponto que separa os 25% <strong>maiores</strong> valores do restante da distribuição.</p>
+</div>
+</div>
+<p>Os quartis que veremos aqui são medidas <strong>empíricas</strong> dos limites indicados na figura acima. Calculamos estes limites a partir de uma amostra de tamanho <span class="math inline">\(n\)</span>.</p>
+<section id="cálculo-dos-quartis-na-posição-j" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="cálculo-dos-quartis-na-posição-j"><span class="header-section-number">7.1</span> Cálculo dos quartis na posição <span class="math inline">\(j\)</span></h2>
+<p>Existem diferentes algorítmos possíveis para o cálculo dos quartis. Veremos um destes algoritmos. Para isto, siga os passos abaixo:</p>
+<ol type="1">
+<li><p>Re-organize <span class="math inline">\(X\)</span> em ordem crescente de <span class="math inline">\(k = 1\)</span> a <span class="math inline">\(k = n\)</span>. Seja <span class="math inline">\(n\)</span> o número de observações em <span class="math inline">\(X\)</span>, teremos portanto <span class="math inline">\(X_k\)</span> como o valor observado na posição <span class="math inline">\(k\)</span> em ordem crescente. Deste modo, para <span class="math inline">\(k = 1\)</span> teremos <span class="math inline">\(X_1\)</span> como o menor valor e para <span class="math inline">\(k = n\)</span> teremos <span class="math inline">\(X_n\)</span> como o maior valor.</p></li>
+<li><p>Calcule</p></li>
+</ol>
+<p><span class="math inline">\(L = \frac{j \times (n+1)}{4}\)</span>;</p>
+<ol start="3" type="1">
+<li><p>Defina <span class="math inline">\(k\)</span> como o maior número inteiro <strong>abaixo</strong> de <span class="math inline">\(L\)</span>;</p></li>
+<li><p>Calcule</p></li>
+</ol>
+<p><span class="math inline">\(Q_j = X_k + (L - k) \times (X_{k+1}-X_k)\)</span>;</p>
+<ol start="5" type="1">
+<li><span class="math inline">\(Q_j\)</span> será um elemento entre <span class="math inline">\(X_k\)</span> e <span class="math inline">\(X_{k+1}\)</span>. Se <span class="math inline">\(X_k\)</span> for um número inteiro, <span class="math inline">\(Q_j = X_k\)</span></li>
+</ol>
+<p><strong>Exemplo para o cálculo de <span class="math inline">\(Q_1\)</span></strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">2</span>),<span class="dv">1</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>nX <span class="ot">=</span> <span class="fu">length</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Considere a variável <span class="math inline">\(X\)</span> com <span class="math inline">\(n =\)</span> 20 observações.</p>
+<p><span class="math inline">\(X\)</span> = 8.7, 10.4, 8.3, 13.2, 10.7, 8.4, 11, 11.5, 11.2, 9.4, 13, 10.8, 8.8, 5.6, 12.2, 9.9, 10, 11.9, 11.6, 11.2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sX <span class="ot">=</span> <span class="fu">sort</span>(X)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>j1 <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>L1 <span class="ot">=</span> j1 <span class="sc">*</span> (nX <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">/</span><span class="dv">4</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>k1 <span class="ot">=</span> <span class="fu">floor</span>(L1)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>Q1 <span class="ot">=</span> sX[k1] <span class="sc">+</span> (L1 <span class="sc">-</span> k1) <span class="sc">*</span> (sX[k1<span class="sc">+</span><span class="dv">1</span>] <span class="sc">-</span> sX[k1])</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>j2 <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>L2 <span class="ot">=</span> j2 <span class="sc">*</span> (nX <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">/</span><span class="dv">4</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>k2 <span class="ot">=</span> <span class="fu">floor</span>(L2)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>Q2 <span class="ot">=</span> sX[k2] <span class="sc">+</span> (L2 <span class="sc">-</span> k2) <span class="sc">*</span> (sX[k2<span class="sc">+</span><span class="dv">1</span>] <span class="sc">-</span> sX[k2])</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>j3 <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>L3 <span class="ot">=</span> j3 <span class="sc">*</span> (nX <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">/</span><span class="dv">4</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>k3 <span class="ot">=</span> <span class="fu">floor</span>(L3)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>Q3 <span class="ot">=</span> sX[k3] <span class="sc">+</span> (L3 <span class="sc">-</span> k3) <span class="sc">*</span> (sX[k3<span class="sc">+</span><span class="dv">1</span>] <span class="sc">-</span> sX[k3])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>Arrange em ordem <strong>crescente</strong> para determinar os valores de <span class="math inline">\(X\)</span> nas posições <span class="math inline">\(k\)</span>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Posicao_k <span class="ot">=</span> <span class="fu">paste</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(X), <span class="st">"a Posição"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">tibble</span>(<span class="st">`</span><span class="at">Posicao k</span><span class="st">`</span> <span class="ot">=</span> Posicao_k, <span class="st">`</span><span class="at">X ordenado</span><span class="st">`</span> <span class="ot">=</span> sX)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">width</span>(<span class="at">width =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-918fd760{}.cl-918adc9c{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-918af538{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-918af542{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-918b30ca{width:108pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-918b30de{width:108pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-918b30e8{width:108pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-918b30fc{width:108pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-918b3106{width:108pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-918b3110{width:108pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-918fd760">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-918b3106"><p class="cl-918af538"><span class="cl-918adc9c">Posicao k</span></p></td><td class="cl-918b3110"><p class="cl-918af542"><span class="cl-918adc9c">X ordenado</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">1a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">5.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">2a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">8.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">3a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">8.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">4a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">8.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">5a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">8.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">6a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">9.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">7a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">9.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">8a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">9a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">10.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">10a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">10.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">11a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">10.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">12a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">11.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">13a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">11.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">14a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">11.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">15a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">11.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">16a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">11.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">17a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">11.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">18a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">12.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30ca"><p class="cl-918af538"><span class="cl-918adc9c">19a Posição</span></p></td><td class="cl-918b30de"><p class="cl-918af542"><span class="cl-918adc9c">13.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-918b30fc"><p class="cl-918af538"><span class="cl-918adc9c">20a Posição</span></p></td><td class="cl-918b30e8"><p class="cl-918af542"><span class="cl-918adc9c">13.2</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Para <span class="math inline">\(j = 1\)</span> (<span class="math inline">\(Q_1\)</span>) calcule:</li>
+</ol>
+<p><span class="math inline">\(L = \frac{1 \times (20+1)}{4} = 5.25\)</span>;</p>
+<ol start="3" type="1">
+<li><p>Defina <span class="math inline">\(k\)</span> como o maior número inteiro abaixo de <span class="math inline">\(L\)</span>. Portanto, se <span class="math inline">\(L = 5.25\)</span>, <span class="math inline">\(k = 5\)</span>.</p></li>
+<li><p>Do item anterior, note que a observação correspondente à <span class="math inline">\(k = 5\)</span> (5<span class="math inline">\(^a\)</span> posição) é 8.8, enquanto a observação correspondente à <span class="math inline">\(k = 5 + 1 = 6\)</span> (6<span class="math inline">\(^a\)</span> posição) é 9.4. Deste modo, calcule</p></li>
+</ol>
+<p><span class="math inline">\(Q_1 = 8.8 + (5.25 - 5) \times (9.4-8.8) = 8.95\)</span>;</p>
+<p>Vemos então que para a variável <span class="math inline">\(X\)</span> em questão, o primeiro quartil é:</p>
+<p><span class="math inline">\(Q_1 = 8.95\)</span></p>
+<p><strong>Exercício</strong>: Calcule agora os valores correspondentes a <span class="math inline">\(Q_2\)</span> e <span class="math inline">\(Q_3\)</span> e verifique que os resultados são: <span class="math inline">\(Q_2 = 10.75\)</span> e <span class="math inline">\(Q_3 = 11.575\)</span></p>
+</section>
+<section id="cálculo-dos-quartis-no-r" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="cálculo-dos-quartis-no-r"><span class="header-section-number">7.2</span> Cálculo dos quartis no R</h2>
+<p>Podemos programar a sequência de funções acima utilizando o R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">8.7</span>, <span class="fl">10.4</span>, <span class="fl">8.3</span>, <span class="fl">13.2</span>, <span class="fl">10.7</span>, <span class="fl">8.4</span>, <span class="dv">11</span>, <span class="fl">11.5</span>, <span class="fl">11.2</span>, <span class="fl">9.4</span>, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>      <span class="dv">13</span>, <span class="fl">10.8</span>, <span class="fl">8.8</span>, <span class="fl">5.6</span>, <span class="fl">12.2</span>, <span class="fl">9.9</span>, <span class="dv">10</span>, <span class="fl">11.9</span>, <span class="fl">11.6</span>, <span class="fl">11.2</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenando X em ordem crescente</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sX <span class="ot">=</span> <span class="fu">sort</span>(X, <span class="at">decreasing =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontrando o número de observações em X</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="fu">length</span>(X) </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontrando os quartis (Q1, Q2 e Q3)</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>j <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>L <span class="ot">=</span> j <span class="sc">*</span> (n <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">/</span><span class="dv">4</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>k <span class="ot">=</span> <span class="fu">floor</span>(L)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>Q <span class="ot">=</span> sX[k] <span class="sc">+</span> (L <span class="sc">-</span> k) <span class="sc">*</span> (sX[k<span class="sc">+</span><span class="dv">1</span>] <span class="sc">-</span> sX[k])</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Q) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'Q1'</span>, <span class="st">'Q2'</span>, <span class="st">'Q3'</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Vizualizando os quartis</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>Q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Q1     Q2     Q3 
+ 8.950 10.750 11.575 </code></pre>
+</div>
+</div>
+<p>No entando, existe uma função no R denominada <code>quantile</code> que pode ser utilizada da seguinte forma:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(X, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   25%    50%    75% 
+ 9.250 10.750 11.525 </code></pre>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Observações
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Lembre que o quartil <span class="math inline">\(Q_1\)</span> delimita a posição <span class="math inline">\(25\%\)</span>, <span class="math inline">\(Q_2\)</span> delimita a posição <span class="math inline">\(50\%\)</span> (<span class="math inline">\(=\)</span> mediana) e <span class="math inline">\(Q_3\)</span> delimita as posição <span class="math inline">\(75\%\)</span>. Por este motivo utilizamos o argumento <code>probs = c(0.25, 0.50, 0.75)</code>. Deste modo, a função <code>quantile</code> é mais geral que a rotina passada anteriormente, uma vez que permite o cálculo para qualquer posição entre os <strong>quantis</strong> <span class="math inline">\(0\%\)</span> e <span class="math inline">\(100\%\)</span>.</p></li>
+<li><p>Note também que os resultados foram <em>ligeiramente</em> diferentes, uma vez que existem diferentes algoritmos para o cálculo dos quartis. A função <code>quantile</code> permite a escolha entre <span class="math inline">\(9\)</span> algoritmos diferentes e por padrão, utiliza o <code>type = 7</code>. O passo-a-passo que mostramos nesta apostila corresponde ao <code>type = 6</code>. Você pode verificar que se digitar o comando abaixo, os resultados serão os mesmos que calculamos manualmente.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(X, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>), <span class="at">type =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   25%    50%    75% 
+ 8.950 10.750 11.575 </code></pre>
+</div>
+</div>
+<ul>
+<li><p>Ainda que cada algoritmo possa resultar em pequenas diferenças, estas diferenças diminuem à medida que o tamanho amostral aumenta.</p></li>
+<li><p>Finalmente, os quartis discutidos aqui são casos particulares de limites mais gerais denominados de <strong>quantis</strong> que indicam uma deteminama posição na distribuição. Como vimos, o limite <span class="math inline">\(Q_1\)</span> por exemplo, denominado de Quartil 1 delimita o trecho que separa <span class="math inline">\(25\%\)</span>. Poderíamos denominar este limite de <strong>Quantil</strong> <span class="math inline">\(0,25\)</span>. Pensando desta maneira, poderíamos encontrar qualquer posição. Por exemplo o quantil <span class="math inline">\(0,10\)</span>, que delimita os <span class="math inline">\(10\%\)</span> dos menores valores, o quantil <span class="math inline">\(0,025\)</span> que delimita os <span class="math inline">\(2,5\%\)</span> menores valores na distribuição, e assim, por diante.</p></li>
+<li><p>É comum verificarmos outros limites importantes como <span class="math inline">\(2,5\%\)</span>, <span class="math inline">\(5\%\)</span>, <span class="math inline">\(10\%\)</span>, <span class="math inline">\(90\%\)</span>, <span class="math inline">\(95\%\)</span> e <span class="math inline">\(97,5\%\)</span>.</p></li>
+<li><p>No cálculo dos quantis para um limite <span class="math inline">\(p\)</span> qualquer (<span class="math inline">\(0 \le p \le 1\)</span>) a única mundança no algoritmno que apresentamos neste capítulo está na obtenção de <span class="math inline">\(L\)</span> (passo 2), que é feita como:</p></li>
+</ul>
+<p><span class="math display">\[L = p \times (n+1)\]</span></p>
+</div>
+</div>
+</section>
+<section id="obtendo-os-quartis-a-partir-de-uma-tabela-de-dados" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="obtendo-os-quartis-a-partir-de-uma-tabela-de-dados"><span class="header-section-number">7.3</span> Obtendo os quartis a partir de uma tabela de dados</h2>
+<p>Importe a base de dados <code>Reservatorios_Parana_parcial.csv</code>.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> <span class="fu">read_delim</span>(<span class="st">'Reservatorios_Parana_parcial.csv'</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">delim =</span> <span class="st">','</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">'.'</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">encoding =</span> <span class="st">'latin1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Assim como fizemos nos capítulos anteriores usaremos a função <code>summarise</code> para obter os quartis para a variável <code>CPUE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>res <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Quartis =</span> <span class="fu">quantile</span>(res<span class="sc">$</span>CPUE, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Limites =</span> <span class="fu">c</span>(<span class="st">'25%'</span>, <span class="st">'50%'</span>, <span class="st">'75%'</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="tabwid"><style>.cl-91b8e1d2{}.cl-91b42bf6{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-91b43574{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-91b4357e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-91b453e2{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-91b453f6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-91b4540a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-91b45414{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-91b4541e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-91b45432{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-91b8e1d2">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-91b45432"><p class="cl-91b43574"><span class="cl-91b42bf6">Quartis</span></p></td><td class="cl-91b4541e"><p class="cl-91b4357e"><span class="cl-91b42bf6">Limites</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-91b453f6"><p class="cl-91b43574"><span class="cl-91b42bf6">7.43</span></p></td><td class="cl-91b453e2"><p class="cl-91b4357e"><span class="cl-91b42bf6">25%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-91b453f6"><p class="cl-91b43574"><span class="cl-91b42bf6">11.74</span></p></td><td class="cl-91b453e2"><p class="cl-91b4357e"><span class="cl-91b42bf6">50%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-91b45414"><p class="cl-91b43574"><span class="cl-91b42bf6">16.30</span></p></td><td class="cl-91b4540a"><p class="cl-91b4357e"><span class="cl-91b42bf6">75%</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+<section id="boxplots-uma-representação-gráfica-dos-quartis" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="boxplots-uma-representação-gráfica-dos-quartis"><span class="header-section-number">7.4</span> Boxplots: uma representação gráfica dos quartis</h2>
+<p>Os quartis de uma distribuição no ajudam a entender o formato de uma distribuição. Uma das formas amplamemte estabelecidas de representarmos graficamente os quartis são por meio de um gráfico denominado de <strong>Boxplot</strong>. Para a variável acima, o boxplot será:</p>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(X)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>PX <span class="ot">=</span> <span class="fu">quantile</span>(X, <span class="at">probs =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="dv">1</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>LegX <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Mínimo"</span>, <span class="st">"Q1"</span>, <span class="st">"Q2 = Mediana"</span>, <span class="st">"Q3"</span>, <span class="st">"Máximo"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y =</span> X)) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">'lightblue'</span>, <span class="at">coef =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">'text'</span>, <span class="at">x =</span> .<span class="dv">8</span>, <span class="at">y =</span> PX <span class="sc">-</span> <span class="fl">0.3</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> LegX) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">'segment'</span>, </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fl">0.5</span>, <span class="at">xend =</span> <span class="fl">1.23</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> PX, <span class="at">yend =</span> PX,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">ends =</span> <span class="st">'first'</span>)) <span class="sc">+</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-boxplot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="05-quartis_files/figure-html/fig-boxplot-1.png" class="img-fluid figure-img" width="384"></p>
+<p></p><figcaption class="figure-caption">Figura 7.2: Divisão em quartis de um boxplot</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Em um boxplot, a linha central representa a <strong>Mediana</strong> ou <span class="math inline">\(2^o\)</span> quartil (<span class="math inline">\(Q_2\)</span>) e os limites da caixa são o <span class="math inline">\(1^o\)</span> e <span class="math inline">\(3^o\)</span> quartis, respectivamente <span class="math inline">\(Q_1\)</span> e <span class="math inline">\(Q_3\)</span>. As extremidades geralmente são os pontos máximo e mínimo da dsitribuição.</p>
+<p>Existe uma relação entre os <strong>histogramas</strong> e os <strong>boxplots</strong>. Ambos podem ser utilizados para avaliarmos o grau de <strong>assimetria</strong> de uma distribuição como apresentado abaixo. Em uma distribuição simétrica, a caixa do boxplot tende a se concentrar no meio da distribuição, enquanto em distribuições assimétricas, a caixa tende a ficar deslocada à esquerda ou à direita (<a href="#fig-assimetria-box">Figura&nbsp;<span>7.3</span></a>).</p>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver função completa no arquivo 'scripts/assimetria_ggplot.r'</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">assimetria_ggplot</span>(<span class="at">fig =</span> <span class="st">'bh'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-assimetria-box" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="05-quartis_files/figure-html/fig-assimetria-box-1.png" class="img-fluid figure-img" width="768"></p>
+<p></p><figcaption class="figure-caption">Figura 7.3: Padrão de assimetria em representado por meio de histogramas e boxplots.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
