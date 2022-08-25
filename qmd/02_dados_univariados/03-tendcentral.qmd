@@ -135,8 +135,7 @@ assimetria_ggplot()
 
 ## Obtendo medidas de uma tabela de dados 
 
-Importe novamente a base de dados `Reservatorios_Parana_parcial.csv`.
-
+Importe a base de dados `Reservatorios_Parana_parcial.csv`.
 
 ```{r}
 #| echo: false
