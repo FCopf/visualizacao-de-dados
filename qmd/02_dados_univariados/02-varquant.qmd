@@ -90,7 +90,7 @@ Nas duas situações, não é possível evidenciar os padrões de distribuição
 
 ### Tabela de frequência para a `CPUE`
 
-Importe novamente a base de dados `Reservatorios_Parana_parcial.csv`.
+Importe a base de dados `Reservatorios_Parana_parcial.csv`.
 
 
 ```{r}
@@ -116,7 +116,6 @@ res = read_delim('Reservatorios_Parana_parcial.csv',
 names_num <- names(which(sapply(res, is.numeric)))
 res_num <- res[, names_num]
 ```
-
 
 
 No objeto `res` temos `r length(names_num)` variáveis quantitativas: `r paste(names_num, collapse = ', ')`.  Vamos verificar a como fica uma tabela de frequências para a variável `CPUE` que expressa a captura em $kg$ de peixes em cada reservatório. Inicialmente, vamos selecionar somente esta coluna da tabela e visualizá-la em ordem crescente.
