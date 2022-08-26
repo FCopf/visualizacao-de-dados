@@ -15,6 +15,88 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -55,7 +137,10 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
+<link href="../../site_libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
+<link href="../../site_libs/tabwid-1.0.0/scrool.css" rel="stylesheet">
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -198,7 +283,15 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Conteúdo</h2>
+   
+  <ul>
+  <li><a href="#covariância-entre-y-e-x" id="toc-covariância-entre-y-e-x" class="nav-link active" data-scroll-target="#covariância-entre-y-e-x"> <span class="header-section-number">10.1</span> Covariância entre <span class="math inline">\(Y\)</span> e <span class="math inline">\(X\)</span></a></li>
+  <li><a href="#coeficiente-de-correlação-linear-de-pearson-r" id="toc-coeficiente-de-correlação-linear-de-pearson-r" class="nav-link" data-scroll-target="#coeficiente-de-correlação-linear-de-pearson-r"> <span class="header-section-number">10.2</span> Coeficiente de correlação linear de Pearson <span class="math inline">\(r\)</span></a></li>
+  <li><a href="#exemplo" id="toc-exemplo" class="nav-link" data-scroll-target="#exemplo"> <span class="header-section-number">10.3</span> Exemplo</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -219,8 +312,204 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pacotes e funções utilizadas no capítulo
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Iremos medir o grau de associação entre duas variáveis quantitativas <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> por meio dos coeficientes de <strong>covariância</strong> e <strong>correlação linear</strong>. Não estamos interessados em verificar se <span class="math inline">\(Y\)</span> depende funcionalmente de <span class="math inline">\(X\)</span> ou vice-versa. Estamos interessados somente em medir a intensidade de associação linear entre as duas variáveis. Ao calcularmos a covariância entre <span class="math inline">\(Y\)</span> e <span class="math inline">\(X\)</span> (<span class="math inline">\(s_{YX}\)</span>), por exemplo, poderíamos inverter a ordem fazendo <span class="math inline">\(s_{XY}\)</span> e teríamos exatamente os mesmo resultados. O mesmo vale para o coeficiente de correlação (<span class="math inline">\(r_{YX} = r_{XY}\)</span>). Dizemos que existe uma <em>simetria</em> ao calcular estes coeficientes.</p>
+<p>Estamos interessados em diferenciar três situações que podem ser visualizadas nos gráficos de dispersão abaixo:</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="02-biquanti_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="1440"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="covariância-entre-y-e-x" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="covariância-entre-y-e-x"><span class="header-section-number">10.1</span> Covariância entre <span class="math inline">\(Y\)</span> e <span class="math inline">\(X\)</span></h2>
+<p>Inicialmente, vamos retomar o conceito de <strong>variância amostral</strong> (<a href="../02_dados_univariados/04-variacao.html"><span>Capítulo&nbsp;6</span></a>).</p>
+<p>A variância amostral de <span class="math inline">\(Y\)</span> pode ser obtida subtraindo cada observação em <span class="math inline">\(Y\)</span> de sua média (<span class="math inline">\(\overline{Y}\)</span>) e elevando esta subtração ao quadrado <span class="math inline">\((Y_i - \overline{Y})^2\)</span>. Ao somar para todos os valores de <span class="math inline">\(Y_i\)</span> teremos o <strong>somatório dos quadrados de <span class="math inline">\(Y\)</span></strong> (<span class="math inline">\(SQ_Y\)</span>).</p>
+<p><span class="math display">\[SQ_Y = \sum_{i-1}^{n} (Y_i - \overline{Y})^2 = \sum_{i-1}^{n}(Y_i - \overline{Y}) (Y_i - \overline{Y})\]</span></p>
+<p>Dividindo <span class="math inline">\(SQ_Y\)</span> por <span class="math inline">\(n-1\)</span> teremos a <strong>variância amostral de <span class="math inline">\(Y\)</span></strong> (<span class="math inline">\(s^2_Y\)</span>).</p>
+<p><span class="math display">\[s^2_Y = \frac{\sum_{i-1}^{n} (Y_i - \overline{Y})^2}{n-1}\]</span></p>
+<p>No <a href="../02_dados_univariados/04-variacao.html"><span>Capítulo&nbsp;6</span></a> representamos esta quantia simplesmente por <span class="math inline">\(s^2\)</span>. Aqui vamos usar uma notação diferente (<span class="math inline">\(s^2_Y\)</span>), pois haverá outros estimadores de variância envolvidos, de modo que deveremos ser mais claros a respeito de qual estimador estaremos nos referindo.</p>
+<p>Adotando o mesmo procedimento para <span class="math inline">\(X\)</span>, podemos calcular o <strong>somatório dos quadrados de <span class="math inline">\(X\)</span></strong> (<span class="math inline">\(SQ_X\)</span>).</p>
+<p><span class="math display">\[SQ_X = \sum_{i-1}^{n} (X_i - \overline{X})^2 = \sum_{i-1}^{n}(X_i - \overline{X}) (X_i - \overline{X})\]</span></p>
+<p>e a <strong>variância amostral de <span class="math inline">\(X\)</span></strong> (<span class="math inline">\(s^2_X\)</span>).</p>
+<p><span class="math display">\[s^2_X = \frac{\sum_{i-1}^{n} (X_i - \overline{X})^2}{n-1}\]</span></p>
+<p>Combinando as duas ideias, teremos o <strong>produto cruzado de <span class="math inline">\(Y\)</span> e <span class="math inline">\(X\)</span></strong> (<span class="math inline">\(SQ_{YX}\)</span>)</p>
+<p><span class="math display">\[SQ_{YX} = \sum_{i-1}^{n}(Y_i - \overline{Y}) (X_i - \overline{X})\]</span></p>
+<p>e finalmente a <strong>covariância amostral entre <span class="math inline">\(Y\)</span> e <span class="math inline">\(X\)</span></strong> (<span class="math inline">\(s_{YX}\)</span>).</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Covariância amostral
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[s_{YX} = \frac{\sum_{i-1}^{n}(Y_i - \overline{Y}) (X_i - \overline{X})}{n-1}\]</span></p>
+</div>
+</div>
+</section>
+<section id="coeficiente-de-correlação-linear-de-pearson-r" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="coeficiente-de-correlação-linear-de-pearson-r"><span class="header-section-number">10.2</span> Coeficiente de correlação linear de Pearson <span class="math inline">\(r\)</span></h2>
+<p>Assim como a covariância, o <strong>coeficiente de correlação de Pearson</strong> (<strong><span class="math inline">\(r\)</span></strong>) mede a intensidade da associação linear entre <span class="math inline">\(Y\)</span> e <span class="math inline">\(X\)</span>. A covariância entretanto, não tem limite superior ou inferior, pois sua magnitude depende da ordem de grandeza das variáveis envolvidas. O coeficiente de correlação <span class="math inline">\(r\)</span> é calculado como a covariância entre <span class="math inline">\(Y\)</span> e <span class="math inline">\(X\)</span> padronizada pelo <strong>produto dos desvios padrões</strong> de <span class="math inline">\(Y\)</span> e de <span class="math inline">\(X\)</span>.</p>
+<p><span class="math display">\[r = \frac{s_{YX}}{s_Y s_X} =
+\frac{\frac{\sum{(Y_i - \overline{Y})(X_i - \overline{X})}}{n-1}}
+{\sqrt{\frac{\sum{(Y_i - \overline{Y})^2}}{n-1}}  \times
+\sqrt{\frac{\sum{(X_i - \overline{X})^2}}{n-1}}}\]</span></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Coeficiente de correlação
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[r = \frac{\sum{(Y_i - \overline{Y})(X_i - \overline{X})}}{\sqrt{\sum{(Y_i - \overline{Y})^2 \sum{(X_i - \overline{X})^2}}}}\]</span></p>
+</div>
+</div>
+<p>Esta padronização garante que <span class="math inline">\(r\)</span> pode variar entre <span class="math inline">\(-1\)</span> (correlação perfeitamente linear e <strong>negativa</strong>) e <span class="math inline">\(+1\)</span> (correlação perfeitamente linear e <strong>positiva</strong>), se aproximando de zero quando <strong>não existe</strong> correlação.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="02-biquanti_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="1440"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exemplo" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="exemplo"><span class="header-section-number">10.3</span> Exemplo</h2>
+<p>A <a href="#tbl-haddon-tiger">Tabela&nbsp;<span>10.1</span></a> apresenta dados da pesca do camarão tigre e do camarão rei entre nos anos de 1976 a 1987 <span class="citation" data-cites="haddon2010modelling">(<a href="#ref-haddon2010modelling" role="doc-biblioref">Haddon 2010</a>)</span>. O camarão tigre constitui a espécie alvo da pesca, enquanto o camarão rei aparece como uma espécie acidental.</p>
+<p>Importe a base de dados <a href="https://github.com/FCopf/probest-cambientais/blob/master/datasets/ctigre_haddon.csv" target="_blank">ctigre_haddon.csv</a>:</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tigre <span class="ot">=</span> <span class="fu">read_delim</span>(<span class="st">'ctigre_haddon.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tigre <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_header_labels</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">list</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">Year =</span> <span class="st">'Ano'</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">Tiger =</span> <span class="st">'Camarão tigre'</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">King =</span> <span class="st">'Camarão rei'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-haddon-tiger" class="anchored">
+
+<div class="tabwid"><style>.cl-64084348{}.cl-640361f2{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-64036f76{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-640390fa{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6403910e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64039122{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class="cl-64084348"><caption>Tabela 10.1:  Captura do camarão tigre e do camarão rei (ton) entre 1976 e 1987. </caption>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-64039122"><p class="cl-64036f76"><span class="cl-640361f2">Ano</span></p></td><td class="cl-64039122"><p class="cl-64036f76"><span class="cl-640361f2">Camarão tigre</span></p></td><td class="cl-64039122"><p class="cl-64036f76"><span class="cl-640361f2">Camarão rei</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,976</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">566</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">10</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,977</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,437</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">22</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,978</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,646</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">42</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,979</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">2,056</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">33</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,980</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">3,171</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">64</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,981</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">2,743</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">34</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,982</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">2,838</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">59</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,983</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">4,434</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">146</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,984</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">4,149</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">78</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,985</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">3,480</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">75</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">1,986</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">2,375</span></p></td><td class="cl-640390fa"><p class="cl-64036f76"><span class="cl-640361f2">81</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6403910e"><p class="cl-64036f76"><span class="cl-640361f2">1,987</span></p></td><td class="cl-6403910e"><p class="cl-64036f76"><span class="cl-640361f2">3,355</span></p></td><td class="cl-6403910e"><p class="cl-64036f76"><span class="cl-640361f2">52</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+<p>Nas figuras abaixo temos as abundâncias das espécies ao longo dos anos e o gráfico de dispersão.</p>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c1 <span class="ot">=</span> <span class="fu">ggplot</span>(tigre, <span class="fu">aes</span>(<span class="at">x =</span> Year)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Tiger), <span class="at">color =</span> <span class="st">'red'</span>) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> Tiger), <span class="at">color =</span> <span class="st">'red'</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">19</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> King), <span class="at">color =</span> <span class="st">'blue'</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> King), <span class="at">color =</span> <span class="st">'blue'</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">19</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="dv">1976</span>, <span class="at">xend =</span> <span class="fl">1976.3</span>, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="dv">4000</span>, <span class="at">yend =</span> <span class="dv">4000</span>, </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">'red'</span>) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="dv">1976</span>, <span class="at">xend =</span> <span class="fl">1976.3</span>, </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="dv">3700</span>, <span class="at">yend =</span> <span class="dv">3700</span>, </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">'blue'</span>) <span class="sc">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="fl">1976.4</span>, <span class="at">y =</span> <span class="dv">4000</span>, </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> <span class="st">'Camarão tigre'</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="fl">1976.4</span>, <span class="at">y =</span> <span class="dv">3700</span>, </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> <span class="st">'Camarão rei'</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> tigre<span class="sc">$</span>Year) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'A'</span>, </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">'Abundância (Ton)'</span>) <span class="sc">+</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>c2 <span class="ot">=</span> <span class="fu">ggplot</span>(tigre, <span class="fu">aes</span>(<span class="at">y =</span> King, <span class="at">x =</span> Tiger)) <span class="sc">+</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">19</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">150</span>, <span class="at">by =</span> <span class="dv">20</span>)) <span class="sc">+</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">500</span>, <span class="dv">5000</span>, <span class="at">by =</span> <span class="dv">500</span>)) <span class="sc">+</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'B'</span>,</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">'Camarão tigre (Ton)'</span>, </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">'Camarão rei  (Ton)'</span>) <span class="sc">+</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>c1 <span class="sc">|</span> c2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-haddon-tiger" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="02-biquanti_files/figure-html/fig-haddon-tiger-1.png" class="img-fluid figure-img" width="960"></p>
+<p></p><figcaption class="figure-caption">Figura 10.1: A - Captura do camarão tigre e do camarão-rei (ton) entre 1976 e 1987. B - Associação positiva nas capturas anuais entre 1976 e 1987.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A captura em toneladas do camarão tigre é sempre mais elevada. Entretanto, a figura da direita sugere haver uma associação linear entre as capturas. Nos anos em que houve maiores capturas do camarão tigre parece ter havido também um aumento nas capturas do camarão rei. Dizemos as capturas covariam positivamente. Portanto existe uma <strong>correlação positiva</strong> entre a captura das duas espécies.</p>
+<p>Em nenhum momento estamos dizendo que a captura de uma espécie <strong>resulta</strong> no aumento na captura da outra. Muito provavelmente, as abundâncias das duas espécies estão relacionadas a um terceiro fator que gera um comportamento similar na variação das capturas ano a ano. Estamos interessados em mensurar o grau de associação seja pela covariância ou pelo coeficiente de correlação de Pearson.</p>
+<p>a covariância entre as abundâncias dos camarões tigre e rei é positiva (<span class="math inline">\(s_{tigre-rei} = 3.3293\times 10^{4}\)</span>) e consequentemente a correlação de Pearson também é positiva (<span class="math inline">\(r = 0.82\)</span>). Confira os cálculos utilizando as expressões apresentadas no capítulo.</p>
+<p>No R, a covariância entre <span class="math inline">\(Y\)</span> e <span class="math inline">\(X\)</span> pode ser obtida pela função <code>cov</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(tigre<span class="sc">$</span>Tiger, tigre<span class="sc">$</span>King)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 33293</code></pre>
+</div>
+</div>
+<p>E a correlação pela função <code>cor</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(tigre<span class="sc">$</span>Tiger, tigre<span class="sc">$</span>King)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8196913</code></pre>
+</div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-haddon2010modelling" class="csl-entry" role="doc-biblioentry">
+Haddon, Malcolm. 2010. <em>Modelling and Quantitative Methods in Fisheries</em>. CRC press.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
