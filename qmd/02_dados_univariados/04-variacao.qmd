@@ -98,7 +98,7 @@ Amplitude de variação  = $`r max(X)` - `r min(X)` = `r max(X) - min(X)`$
 
 ## Obtendo medidas variação de uma tabela de dados 
 
-Importe a base de dados `Reservatorios_Parana_parcial.csv`.
+Importe a base de dados [Reservatorios_Parana_parcial.csv](https://github.com/FCopf/visualizacao-de-dados/blob/7ff58104b0955b7e1e800d28dc75fd5cab983ebb/datasets/Reservatorios_Parana_parcial.csv){target="_blank"}.
 
 ```{r}
 #| echo: false

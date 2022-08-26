@@ -11,7 +11,7 @@ library(flextable)
 
 Variáveis qualitativas podem ser categóricas não-ordenadas ou categóricas ordenadas. A descrição de variáveis desta natureza se dá por meio da contagem e da representação dos níveis destas variáveis por meio da contagem total, pelos valores relativos ou percentuais.
 
-Importe a base de dados `Reservatorios_Parana_parcial.csv`.
+Importe a base de dados [Reservatorios_Parana_parcial.csv](https://github.com/FCopf/visualizacao-de-dados/blob/7ff58104b0955b7e1e800d28dc75fd5cab983ebb/datasets/Reservatorios_Parana_parcial.csv){target="_blank"}.
 
 ```{r}
 #| echo: false
@@ -336,6 +336,6 @@ ggplot(aes(x = Trofia)) +
 
 ## Pré-processamento do data-frame para o `ggplot2`
 
-No comando acima, a tabela de dados não foi inserida dentro do comando `ggplot()`. Ela foi inicialmente processada para remoção de `NA`s com a função `drop_na()` e o operador `%>%` foi utilizado para inserir o resultado do processamento no `ggplot()`. Esta é outra maneira de combinar capacidade de processamento de dados no R, conforme apresentado no @sec-procdados, com a representação gráfica.
+No comando acima, a tabela de dados não foi inserida dentro do comando `ggplot()`. Ela foi inicialmente processada para remoção de `NA`s com a função `drop_na()` e o operador `%>%` foi utilizado para inserir o resultado do processamento no `ggplot()`. Esta é outra maneira de combinar capacidade de processamento de dados no R (@sec-procdados) com a representação gráfica do pacote `ggplot2`.
 
 :::

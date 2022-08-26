@@ -19,7 +19,7 @@ Assumimos *explicitamente* que $Y$ é função (depende) de $X$ e não o contrá
 
 ## Visualizando a distribuição de $Y$ em diferentes grupos
 
-Importe a base de dados [medley.csv](https://github.com/FCopf/probest-cambientais/blob/master/datasets/medley.csv) (disponível também em [aqui](https://users.monash.edu.au/~murray/BDAR/){target="_blank"}) que avalia o impacto da presença de metais pesados na diversidade de espécies de diatomácias em riachos (@medleyclements1998; @queen2002experimental; @logan2011biostatistical).
+Importe a base de dados [medley.csv](https://github.com/FCopf/visualizacao-de-dados/blob/main/datasets/medley.csv){target="_blank"} (disponível também em [Chapter 10 - Single factor classification (ANOVA)](https://users.monash.edu.au/~murray/BDAR/){target="_blank"}) que avalia o impacto da presença de metais pesados na diversidade de espécies de diatomácias em riachos (@medleyclements1998; @queen2002experimental; @logan2011biostatistical).
 
 ```{r}
 #| echo: false
@@ -420,9 +420,9 @@ ___
 $R^2$ é chamado de **coeficiente de determinação** e varia entre $0$ e $1$. Se $R^2 = 0$ toda a variação em $Y$ é causada por $SQ_{Res}$ ($\overline{\overline{Y}} = \overline{Y}_1 = \overline{Y}_2 = \cdots = \overline{Y}_k$). À medida que as médias dos tratamentos se distanciam umas das outras, $R^2$ se aproxima de $1$ pois a maior parte da variação em $Y$ é causada por $SQ_{Trat}$.
 
 
-## Voltando ao conjundo de dados `medley.csv`
+## Partição das Soma dos Quadrados no ambiente R
 
-Existe uma série de formas de obtermos os somatórios dos quadrados no R, todos eles associados aos comandos utilizados em Análise de Variância e Regressão Linear. O comando `aov` por exemplo, pode ser utilizado da seguinte forma:
+Voltando ao conjundo de dados [medley.csv](https://github.com/FCopf/visualizacao-de-dados/blob/main/datasets/medley.csv){target="_blank"}, uma forma de obter os somatórios dos quadrados no R é utilizando a função `aov` (mas veja também a função `lm`).
 
 ```{r}
 aov(DIVERSITY ~ ZINC, data = medley)
