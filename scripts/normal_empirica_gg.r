@@ -19,15 +19,15 @@ normal_empirica_gg <- function(){
               aes(y=y), fill = fill, color = NA, alpha = alpha)
   }
   
-  xlabels = expression(bar(X) - 4*"s",
-                       bar(X) - 3*"s",
-                       bar(X) - 2*"s",
-                       bar(X) - 1*"s",
-                       bar(X),
-                       bar(X) + 1*"s",
-                       bar(X) + 2*"s",
-                       bar(X) + 3*"s",
-                       bar(X) + 4*"s")
+  xlabels = expression(mu - 4*sigma,
+                       mu - 3*sigma,
+                       mu - 2*sigma,
+                       mu - 1*sigma,
+                       mu,
+                       mu + 1*sigma,
+                       mu + 2*sigma,
+                       mu + 3*sigma,
+                       mu + 4*sigma)
   
   normal_areas = diff(pnorm(q = c(zstart:zend))) * 100
   area3 = round(diff(pnorm(q = c(-3,3)))*100,2)
@@ -65,7 +65,7 @@ normal_empirica_gg <- function(){
                        labels = xlabels) +
     scale_y_continuous(breaks = NULL) +
     ylab('Densidade da distribuição normal') +
-    theme_classic(base_size = 20) +
+    theme_classic(base_size = 15) +
     ylab("") + xlab("")
   
   p1a

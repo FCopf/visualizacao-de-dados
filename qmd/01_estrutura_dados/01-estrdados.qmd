@@ -82,7 +82,7 @@ Esta tabela está organizada no formato em que cada linha representa uma **unida
 
 ```{r}
 #| label: tbl-estrutura
-#| tbl-cap: 'Estrutura de uma base de dados em que as colunas representam as variáveis (ou atributos) e as linhas representam as unidades amostrais (ou observações)'
+#| tbl-cap: 'Estrutura de uma base de dados em que as colunas representam as variáveis (ou atributos) e as linhas representam as unidades amostrais (ou observações).'
 #| echo: false
 linhas = 10
 data.frame(ID = paste('UA', 1:linhas, by = ' ')) %>%

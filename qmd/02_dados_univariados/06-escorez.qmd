@@ -7,13 +7,12 @@
 library(tidyverse)
 library(flextable)
 library(patchwork)
-#source('scripts/tc_assimetria_ggplot.r')
 source('scripts/normal_empirica_gg.r')
 ```
 
 :::
 
-O **Índice (ou escore) $Z$** indica a posição de uma observação particular ($X_i$) dentro de uma distribuição, relacionando a posição de $X_i$ com a **média** e o **desvio padrão** da distribuição de $X$. Suponha uma variável com média $\overline{X}$ e desvio padrão $s$. O índice de $Z_i$ para uma observação $i$ particular é calculado por:
+O **índice (ou escore) $Z$** indica a posição de uma observação particular ($X_i$) dentro de uma distribuição, relacionando a posição de $X_i$ com a **média** e o **desvio padrão** da distribuição de $X$. Suponha uma variável com média $\overline{X}$ e desvio padrão $s$. O índice de $Z_i$ para uma observação $i$ particular é calculado por:
 
 $$Z_i = \frac{X_i - \overline{X}}{s}$$
 

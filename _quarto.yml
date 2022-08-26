@@ -33,12 +33,12 @@ book:
     - part: qmd/03_dados_bivariados/00-PART-dados_bivariados.qmd
       chapters:
         - qmd/03_dados_bivariados/01-biquali.qmd
-        - qmd/03_dados_bivariados/02-biquant.qmd
+        - qmd/03_dados_bivariados/02-biquanti.qmd
         - qmd/03_dados_bivariados/03-biquantquali.qmd
-        - qmd/03_dados_bivariados/04-series.qmd
-    - part: qmd/04_dados_multivariados/00-PART-dados_multivariados.qmd
-      chapters:
-        - qmd/04_dados_multivariados/01-matrizes.qmd
+        #- qmd/03_dados_bivariados/04-series.qmd
+    #- part: qmd/04_dados_multivariados/00-PART-dados_multivariados.qmd
+    #  chapters:
+    #    - qmd/04_dados_multivariados/01-matrizes.qmd
 
 bibliography: references.bib
 knitr:
