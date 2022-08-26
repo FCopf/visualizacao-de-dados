@@ -1,4 +1,4 @@
-# Medidas de posição: índice Z {#sec-escorez}
+# Medidas de posição: a transformação Z {#sec-escorez}
 
 :::{.callout-tip collapse="true"}
 ## Pacotes e funções utilizadas no capítulo
@@ -147,7 +147,7 @@ Veja na @tbl-z-score que conforme o valor de $X_i$ se distancia da média de $X 
 
 ## Obtendo a transformação $Z$ a partir de uma tabela de dados 
 
-Importe a base de dados `Reservatorios_Parana_parcial.csv`.
+Importe a base de dados [Reservatorios_Parana_parcial.csv](https://github.com/FCopf/visualizacao-de-dados/blob/7ff58104b0955b7e1e800d28dc75fd5cab983ebb/datasets/Reservatorios_Parana_parcial.csv){target="_blank"}.
 
 ```{r}
 #| echo: false

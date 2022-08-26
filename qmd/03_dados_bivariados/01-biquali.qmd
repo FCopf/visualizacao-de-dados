@@ -36,7 +36,7 @@ Imagine que haverá uma obra de revitalização de uma área na região central 
 - [ ] Residente
 - [ ] Não-Residente
 
-A base de dados está disponível em: [Entrevista_municipes.csv](https://github.com/FCopf/probest-cambientais/blob/master/datasets/Entrevista_municipes.csv){target="_blank"}
+A base de dados está disponível em: [Entrevista_municipes.csv](https://github.com/FCopf/visualizacao-de-dados/blob/main/datasets/Entrevista_municipes.csv){target="_blank"}
 
 :::
 
@@ -59,7 +59,9 @@ n_amostra = 12
 n = nrow(mun)  # Número de entrevistados
 ```
 
-Após entrevistar `r n` pessoas selecionadas ao acaso de uma lista da moradores da cidade, é construída uma tabela com três colunas: `Entrevistado` (sequência numérica do primeiro ao último respondente), `Opinião` e `Moradia`. Importe a base de dados `Entrevista_municipes.csv` para ver a tabela.
+Após entrevistar `r n` pessoas selecionadas ao acaso de uma lista da moradores da cidade, é construída uma tabela com três colunas: `Entrevistado` (sequência numérica do primeiro ao último respondente), `Opinião` e `Moradia`. 
+
+Importe a base de dados [Entrevista_municipes.csv](https://github.com/FCopf/visualizacao-de-dados/blob/main/datasets/Entrevista_municipes.csv){target="_blank"} para ver a tabela.
 
 
 ```{r}

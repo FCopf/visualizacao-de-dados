@@ -11,14 +11,14 @@ library(flextable)
 
 Tabelas de dados como a apresentada no @sec-estrdados são normalmente armazenadas em planilhas eletrônicas. Os formatos mais comuns para armazenamento são arquivos do tipo `.xlsx`, `.csv`, `.txt` ou planilhas na nuvem (ex. google sheets). Os programas para visualização e destes tipos de arquivos são apropriados para inserção e armazenamendo de dados, mas apresentam limitações para o processamento, descrição e visualização.
 
-Neste capítulo iremos utilizar a linguagem estatística [R](https://www.r-project.org/) e o ambiente de trabalho [RStudio](https://rstudio.com/) para iniciar um projeto de descrição e visualização de dados. Veremos como preparar um novo projeto na linguagem R, organizar as bases de dados em um diretório de trabalho, importá-las para o ambiente R e aplicar algumas ações comuns de processamento. O objetivo é que a base de dados original permaneça inalterada no diretório de trabalho e que todo o processamento seja feito em uma *versão da base de dados* que será importada para o ambiente R. Isto evita que sejam feitas alterações equivocadas diretamente na base de dados, resultando na perda da informação original.
+Neste capítulo iremos utilizar a linguagem estatística [R](https://www.r-project.org/){target="_blank"} e o ambiente de trabalho [RStudio](https://rstudio.com/){target="_blank"} para iniciar um projeto de descrição e visualização de dados. Veremos como preparar um novo projeto na linguagem R, organizar as bases de dados em um diretório de trabalho, importá-las para o ambiente R e aplicar algumas ações comuns de processamento. O objetivo é que a base de dados original permaneça inalterada no diretório de trabalho e que todo o processamento seja feito em uma *versão da base de dados* que será importada para o ambiente R. Isto evita que sejam feitas alterações equivocadas diretamente na base de dados, resultando na perda da informação original.
 
 
 :::{.callout-note}
 
 ## Introdução ao R
 
-Para mais detalhes sobre programação e processamento de dados em R veja: [Introdução ao Ambiente R de Programação](https://fcopf.github.io/probest-introR/).
+Para mais detalhes sobre programação e processamento de dados em R veja: [Introdução ao Ambiente R de Programação](https://fcopf.github.io/probest-introR/){target="_blank"}.
 
 :::
 
@@ -43,7 +43,7 @@ cat('[1] "C:/Users/f_cop/Documents/Intro_estatistica"')
 
 Como resultado, você deverá obter uma saída similar à apresentada acima, contendo o caminho do projeto **em seu computador**.
 
-2. Copie para dentro do diretório a base de dados `Reservatorios_Parana_parcial.csv` disponível no link do [GitHub](https://github.com/FCopf/visualizacao-de-dados/blob/main/datasets/Reservatorios_Parana_parcial.csv). Após acessar o link, a janela de seu navegador irá mostrar um arquivo texto com os dados da planilha. Clique sobre o botão `Raw` na tela do GitHub e com o botão direito do mouse selecione os dados, salvando-os como arquivo `.csv` no diretório de trabalho recém criado. Esta base de dados é a mesma apresentada no @sec-estrdados.
+2. Copie para dentro do diretório a base de dados [Reservatorios_Parana_parcial.csv](https://github.com/FCopf/visualizacao-de-dados/blob/7ff58104b0955b7e1e800d28dc75fd5cab983ebb/datasets/Reservatorios_Parana_parcial.csv){target="_blank"}. Após acessar o link, a janela de seu navegador irá mostrar um arquivo texto com os dados da planilha. Clique sobre o botão `Raw` na tela do GitHub e com o botão direito do mouse selecione os dados, salvando-os como arquivo `.csv` no diretório de trabalho recém criado. Esta base de dados é a mesma apresentada no @sec-estrdados.
 
 3. No R studio crie um novo Script em: `File --> New File --> RScript`. Antes de qualquer ação, salve o novo arquivo como `aula_01.R`. A partir de agora, todos os comandos desta aula deverão ser digitados dentro deste arquivo. Para rodar cada comando, pressione o botão Run no RStudio ou digite as teclas de atalho `Ctrl + Enter`. Não se esqueça de salvar o arquivo texto à medida que adiciona novos comandos.
 

@@ -1,4 +1,4 @@
-# Estrutura e tipo de dados {#sec-estrdados}
+# Estrutura e tipos de dados {#sec-estrdados}
 
 :::{.callout-tip collapse="true"}
 ## Pacotes e funções utilizadas no capítulo
@@ -13,7 +13,7 @@ Utilizamos métodos de estatística descritiva para evidenciar informações rel
 
 ## Um exemplo
 
-Considere a tabela abaixo, construída a partir do livro de Biocenoses em Reservatórios: padrões espaciais e temporais [@rodriguesetal2005].
+Considere a tabela abaixo, construída a partir do livro de Biocenoses em Reservatórios: padrões espaciais e temporais [@rodriguesetal2005]. Disponível no arquivo [Reservatorios_Parana_parcial.csv](https://github.com/FCopf/visualizacao-de-dados/blob/7ff58104b0955b7e1e800d28dc75fd5cab983ebb/datasets/Reservatorios_Parana_parcial.csv){target="_blank"}
 
 ```{r}
 #| echo: false
@@ -41,7 +41,6 @@ res %>%
   flextable() %>% 
   fit_to_width(max_width = 8)
 ```
-
 
 
 ```{r}

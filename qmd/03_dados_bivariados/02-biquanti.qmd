@@ -172,7 +172,7 @@ g1 | g2 | g3
 
 A @tbl-haddon-tiger apresenta dados da pesca do camarão tigre e do camarão rei entre nos anos de 1976 a 1987 [@haddon2010modelling]. O camarão tigre constitui a espécie alvo da pesca, enquanto o camarão rei aparece como uma espécie acidental.
 
-Importe a base de dados [ctigre_haddon.csv](https://github.com/FCopf/probest-cambientais/blob/master/datasets/ctigre_haddon.csv){target="_blank"}:
+Importe a base de dados [ctigre_haddon.csv](https://github.com/FCopf/visualizacao-de-dados/blob/main/datasets/ctigre_haddon.csv){target="_blank"}:
 
 ```{r}
 #| echo: false
@@ -208,8 +208,7 @@ tigre %>%
     values = list(
       Year = 'Ano',
       Tiger = 'Camarão tigre',
-      King = 'Camarão rei')) %>% 
-  fit_to_width(max_width = 5)
+      King = 'Camarão rei'))
 ```
 
 Nas figuras abaixo temos as abundâncias das espécies ao longo dos anos e o gráfico de dispersão.
