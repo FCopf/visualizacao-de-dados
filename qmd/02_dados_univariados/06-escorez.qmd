@@ -62,7 +62,7 @@ O cálculo do índice $Z$ passa pela **centralização** e **padronização** da
 
 $\sum_{i=1}^{n}\frac{(X_i - \overline{X})}{n} = 0$
 
-2. **Padronização**: ao dividirmos a quantia $X_i - \overline{X}$ pelo desvio padrão de $X$ obtemos a nova variável denominada $Z$. O termo padronização refere-se ao fato de que o desvio padrão de $Z$ ser igual a $1$.
+2. **Padronização**: ao dividirmos a quantia $X_i - \overline{X}$ pelo desvio padrão de $X$ obtemos a nova variável denominada $Z$. O termo padronização refere-se ao fato do desvio padrão de $Z$ ser igual a $1$.
 
 A **transformação $Z$** consiste portanto de gerar uma nova variável com média $\overline{Z} = 0$ e desvio padrão $s_{Z} = 1$. 
 
